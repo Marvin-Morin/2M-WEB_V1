@@ -1,0 +1,55 @@
+@import '../../variables';
+@import "../../_mixins.scss";
+
+h1 {
+    @include titre();
+    margin: 50px auto 50px auto; 
+    position: relative; 
+    text-shadow: none;
+}
+
+#presentation {
+
+    width: 80%;
+    margin: $margin-nav auto $margin-footer auto;
+    display: flex;
+    @include flex-center(column);
+    line-height: 2rem;
+
+    img {
+        width: 150px;
+        height: 150px;
+        border: $border-1px-solid-black;
+        border-radius: $border-radius-img;
+        margin-top: 50px;
+    }
+
+    figure {
+        @include flex-center(row)
+    }
+
+
+    p {
+        color: $black;
+    }
+
+    a {
+        text-decoration: underline;
+        padding: 5px;
+        transition: all .3s ease-in;
+    }
+    
+    a:hover {
+        background-color: $black;
+        color: $or;
+        border-radius: $border-radius-3px;
+        transition: all .3s ease-out;
+    }
+}
+
+@media (max-width: 600px) {
+    #presentation {
+
+        margin: $margin-nav auto $margin-footer-responsive auto;
+    }
+}

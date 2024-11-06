@@ -1,0 +1,126 @@
+@import "../../variables";
+@import "../../_mixins";
+
+
+section#projets {
+
+  width: 100%;
+  @include flex-center(column);
+  margin: $margin-nav auto $margin-footer auto;
+
+  h2 {
+    @include titre2-3();
+    margin-bottom: -25px;
+  }
+
+  #galerie {
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  div {
+    @include flex-center(column);
+    max-width: 100%;
+
+    figcaption {
+      color: $black;
+      background-color: $or;
+      padding: 5px;
+      border-radius: 3px;
+      width: 94%;
+      top: 100%;
+      text-align: center;
+      font-size: x-small;
+    }
+  }
+
+  figure img {
+    width: 140px;
+    height: 140px;
+    object-fit: fill;
+    object-position: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  hr {
+    width: 70%;
+    background-color: $black
+  }
+
+  a {
+    @include stylized-link();
+  }
+}
+
+/* Styles pour le modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  @include flex-center(column);
+  background: rgba(0, 0, 0, 0.937);
+  z-index: 6005;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 600px;
+  @include flex-center(row);
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: $white;
+    background-color: rgb(170, 21, 21);
+    border: $border-1px-solid-black;
+    border-radius: 30%;
+    cursor: pointer;
+    @include flex-center(row);
+  }
+}
+
+@media (max-width : 864px) {
+  #galerie {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .modal-content {
+    max-width: 80%;
+  }
+}
+
+@media (max-width : 669px) {
+  #galerie {
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: 80%;
+  }
+}
+
+@media (max-width : 438px) {
+  #galerie {
+    grid-template-columns: repeat(1, 1fr) !important;
+    width: 80%;
+  }
+}
+
+@media (max-width : 600px) {
+  section {
+    margin-bottom: $margin-footer-responsive !important;
+  }
+}

@@ -1,0 +1,58 @@
+@import './variables';
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin titre() {
+  color: $black;
+  font-size: clamp(20px, 5vw, 30px);  // La taille varie de 20px à 30px en fonction de la largeur de l'écran
+  margin: 25px auto;
+  text-align: center;
+}
+
+@mixin titre2-3() {
+  margin-top: auto;
+  // text-decoration: underline;
+  font-weight: bold;
+  // background-color: $white;
+  // text-shadow: $text-shadow-or;
+  text-align: center;
+  color: $black;
+  padding: $padding-10;
+  border-radius: $border-radius;
+}
+
+// Définition du mixin pour les liens stylisés
+@mixin stylized-link($color: $black, $underline-color: $or, $has-after: true) {
+  color: $color;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 5px;
+
+  // Ajoute l'effet ::after si $has-after est true
+  @if $has-after {
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      left: 50%;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background-color: $underline-color;
+      transform: translateX(-50%);
+      transition: all 0.3s ease-in;
+    }
+
+    &:hover::after {
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

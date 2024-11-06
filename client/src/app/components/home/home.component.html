@@ -1,0 +1,72 @@
+<section itemscope itemtype="https://schema.org/LocalBusiness">
+  <!-- <p>N° Siret : <span itemprop="identifier">93479024700019</span></p> -->
+
+  <div id="banniere" itemprop="description" class="bubble-container">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <h1 itemprop="name">
+      Création de site internet <br />
+      pour professionnels et particuliers
+    </h1>
+  </div>
+
+  <div id="presentation">
+    <p itemprop="description">
+      Je vous propose mes services complets de création de sites web, adaptés à
+      tous vos besoins : du site vitrine professionnel pour présenter votre
+      activité à un site complet avec formulaires de contact en langages de
+      programmation pur, jusqu'à des sites e-commerce performants à l’aide de
+      WordPress.
+    </p>
+    <h3>Voici ce que je peux réaliser pour vous :</h3>
+    <ul itemscope itemtype="https://schema.org/ItemList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+        <a href="/prestations#site-vitrine" itemprop="url">
+          <span itemprop="description">Création de sites vitrines pour une présence en ligne élégante et professionnelle.</span>
+        </a>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+        <a href="/prestations#site-complet" itemprop="url">
+          <span itemprop="description">Sites complets intégrant des formulaires de contact pour interaction client.</span>
+        </a>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+        <a href="/prestations#site-e-commerce-wordpress" itemprop="url">
+          <span itemprop="description">Sites e-commerce pour vendre en ligne avec design personnalisé.</span>
+        </a>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+        <a href="/prestations#site-e-commerce-wordpress" itemprop="url">
+          <span itemprop="description">Sites WordPress modulables et évolutifs pour des projets à long terme.</span>
+        </a>
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+        <a href="#" itemprop="url">
+          <span itemprop="description">SEO et Web Sémantique pour optimiser la visibilité en ligne.</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="carousel-container">
+  <h2 itemprop="name">Mes diplômes</h2>
+  <div itemscope itemtype="https://schema.org/EducationalOccupationalCredential" class="carousel" [style.transform]="transformStyle">
+    <meta itemprop="credentialCategory" content="Web Development Certification">
+    <meta itemprop="name" content="Développeur Web Certifié Full-Stack">
+    <meta itemprop="educationalLevel" content="Certification professionnelle">
+    <div class="carousel">
+      <img *ngFor="let image of images" [src]="image" alt="Diplôme" class="carousel-image" />
+    </div>
+  </div>
+  <button *ngIf="currentIndex > 0" class="carousel-button left" (click)="prevImage()">&#10094;</button>
+  <button *ngIf="currentIndex < images.length - 1" class="carousel-button right" (click)="nextImage()">&#10095;</button>
+</div>

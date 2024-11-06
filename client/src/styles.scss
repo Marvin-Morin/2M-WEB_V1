@@ -1,0 +1,163 @@
+@import "./app/variables";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Nunito-regular, sans-serif;
+  // background-image: url("../public/img/background/depositphotos_169535256-stock-photo-blue-wallpaper-texture.jpg");
+  // background-size: contain;
+  // object-position: center;
+  background: #d0a76a6c;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  //   background: linear-gradient(to top, #473923, $or);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Personnalisation de la scrollbar pour Chrome, Edge et Safari */
+::-webkit-scrollbar {
+  width: 12px; /* Largeur de la scrollbar */
+  background-color: #000; /* Arrière-plan noir */
+}
+
+/* Couleur de la poignée de la scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: $or; /* Marron bois */
+  border-radius: 6px; /* Coins arrondis pour la poignée */
+  border: 2px solid #000; /* Bord noir autour de la poignée */
+}
+
+/* Arrière-plan de la track (fond derrière la poignée) */
+::-webkit-scrollbar-track {
+  background-color: #000; /* Noir pour la track */
+}
+
+/* Chemin d'accès aux polices - adaptez si nécessaire */
+@font-face {
+  font-family: 'Nunito-Black';
+  src: url('../public/font-family/Nunito-Black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito-BlackItalic';
+  src: url('../public/font-family/Nunito-BlackItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito-Bold';
+  src: url('../public/font-family/Nunito-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito-BoldItalic';
+  src: url('../public/font-family/Nunito-BoldItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito-ExtraBold';
+  src: url('../public/font-family/Nunito-ExtraBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito-ExtraBoldItalic';
+  src: url('../public/font-family/Nunito-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito-ExtraLight';
+  src: url('../public/font-family/Nunito-ExtraLight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito-ExtraLightItalic';
+  src: url('../public/font-family/Nunito-ExtraLightItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito-HeavyItalic';
+  src: url('../public/font-family/NunitoHeavy-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito-HeavyRegular';
+  src: url('../public/font-family/NunitoHeavy-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito-Italic';
+  src: url('../public/font-family/Nunito-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito-Light';
+  src: url('../public/font-family/Nunito-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito-LightItalic';
+  src: url('../public/font-family/Nunito-LightItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito-Medium';
+  src: url('../public/font-family/Nunito-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito-Regular';
+  src: url('../public/font-family/Nunito-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito-SemiBold';
+  src: url('../public/font-family/Nunito-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito-SemiBoldItalic';
+  src: url('../public/font-family/Nunito-SemiBoldItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}

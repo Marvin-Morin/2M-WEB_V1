@@ -1,0 +1,41 @@
+$white : white;
+$black : black;
+$or : #D0A86A;
+$blue : #0a578c;
+$red : #e72b3e;
+$green : #4caf50;
+
+$background : rgba(255, 255, 255, 0.39);
+
+$padding-10 : 10px;
+$padding-30 : 30px;
+
+$margin : 10px;
+$margin-30 : 30px;
+$margin-footer : 400px;
+$margin-footer-responsive : 850px;
+$margin-nav : 80px;
+
+$border-radius-img : 50%; 
+$border-radius-3px : 3px;
+$border-radius : 7px;
+$border-1px-dashed-or : 2mm ridge  $or;
+$border-1px-solid-black : 1px solid $black;
+$border-1px-solid-white : 1px solid $white;
+
+$text-shadow-black: 2px 2px 1px $black;
+$text-shadow-white: 2px 2px 1px $white;
+$text-shadow-or: 2px 2px 1px $or;
+$box-shadow: 0 0 9px rgba(0, 0, 0, 0.288);
+
+$transition-in-out: transform 0.5s ease-in-out;
+$transition-out: all 0.3s ease-out;
+$transition-in: all 0.3s ease-in;
+
+$transform-translate-50-50: translate(-50%, -50%);
+
+
+// NAV
+$height_nav : 80px;
+$background-nav-footer : rgba(0, 0, 0, 0.518);
+$background-nav-liens : $black;

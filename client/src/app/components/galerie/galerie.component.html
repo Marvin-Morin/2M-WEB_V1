@@ -1,0 +1,49 @@
+<!-- <section>
+  <h2>Mes créations</h2>
+
+  <div id="galerie">
+    <div *ngFor="let image of images; let i = index">
+      <img [src]="image" alt="Image projets Marvin Morin" (click)="openModal(image)" />
+      <p>{{ descriptions[i] }}</p>
+    </div>
+  </div>
+  <a target="_blank" href="https://marvin.fronthub.fr" itemprop="ProfilePage">Voir toutes mes créations</a>
+</section>
+
+ Modal pour afficher l'image en plein écran 
+<div class="modal" *ngIf="selectedImage" (click)="closeModal()">
+  <div class="modal-content" (click)="stopPropagation($event)">
+    <img [src]="selectedImage" alt="Image en grand" />
+    <span class="close" (click)="closeModal()">×</span>
+  </div>
+</div> -->
+
+<section id="projets" aria-labelledby="titre-projets">
+  <hr>
+  <h2 id="titre-projets">Mes créations</h2>
+
+  <div id="galerie" itemscope itemtype="https://schema.org/CreativeWork">
+    <div *ngFor="let image of images; let i = index" itemprop="workExample" itemscope
+      itemtype="https://schema.org/ImageObject">
+      <figure>
+        <img [src]="image" alt="Image de projet créé par Marvin Morin" (click)="openModal(image)"
+          itemprop="contentUrl" />
+        <figcaption itemprop="caption">{{ descriptions[i] }}</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <a href="https://marvin.fronthub.fr" target="_blank" itemprop="url"
+    aria-label="Voir tous les projets de Marvin Morin">
+    Voir tous mes projets
+  </a>
+</section>
+
+<!-- Modal pour afficher l'image en plein écran -->
+<div class="modal" *ngIf="selectedImage" (click)="closeModal()" role="dialog" aria-modal="true"
+  aria-label="Image en grand">
+  <div class="modal-content" (click)="stopPropagation($event)">
+    <img [src]="selectedImage" alt="Affichage en plein écran de l'image sélectionnée" />
+    <button class="close" (click)="closeModal()" aria-label="Fermer l'image">×</button>
+  </div>
+</div>

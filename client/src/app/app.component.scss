@@ -1,0 +1,157 @@
+@import "./variables";
+@import "./_mixins";
+
+.layout {
+  min-height: 100vh;
+  max-height: auto;
+  @include flex-center(column);
+  position: relative;
+}
+
+// Style pour les éléments de trace de la souris
+.trail {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: $or;
+  border-radius: $border-radius-img;
+  pointer-events: none; // Les clics passent à travers les éléments
+  transform: $transform-translate-50-50;
+  animation: fadeOut 0.6s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+nav {
+  width: 100vw;
+  height: $height_nav;
+  @include flex-center(row);
+  // background-color: $background_nav-footer;
+  // border-bottom: $border-1px-solid-black;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 6001;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: $border-radius-img;
+    object-fit: contain;
+    margin-right: auto;
+  }
+
+  #liens {
+    width: auto;
+    margin: auto;
+  }
+
+  a img {
+    margin-left: 50px;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.774));
+      transition: all 0.3s ease-out;
+    }
+  }
+}
+
+/* Menu caché sur mobile */
+@media (max-width: 768px) {
+
+  nav a img {
+    margin-right: auto;
+  }
+
+  #liens {
+    display: none;
+    flex-direction: column;
+    width: 100vw !important;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $background-nav-liens;
+    font-weight: bold;
+    padding: 80px 0;
+    z-index: 6000;
+
+    a {
+      margin: 10px auto !important;
+      color: $or !important;
+    }
+
+  }
+
+  .open {
+    display: flex !important;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow-y: hidden;
+    gap: 15px;
+  }
+}
+
+#menu-button {
+  display: none;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 50px;
+  gap: 5px;
+  padding: 5px;
+  z-index: 6002;
+  overflow: hidden;
+
+  span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: $black;
+    transition: transform 0.3s;
+    transform-origin: center;
+    margin: auto;
+  }
+
+  &.open span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 7px); // Angle et translation pour croisement parfait
+    margin-left: auto;
+  }
+
+  &.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  &.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -7px); // Angle et translation opposés pour alignement
+    margin-left: auto;
+  }
+
+  /* Affichage du bouton hamburger sur mobile */
+  @media (max-width: 768px) {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+#menu-button.open span {
+  background-color: $white !important;
+}
+
+nav #liens a {
+  @include stylized-link();
+  margin: 0px 10px;
+}

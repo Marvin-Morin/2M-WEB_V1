@@ -1,0 +1,74 @@
+@import "../../variables";
+
+// Styles de la page Politique de Confidentialité
+.privacy-policy {
+  margin: $margin-nav auto $margin-footer auto;
+  padding: $padding-30;
+  max-width: 800px;
+  color: $black;
+  background-color: $white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  h1, h2 {
+    color: $blue;
+    margin-bottom: $margin-30;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-top: $margin-30;
+    margin-bottom: $margin;
+  }
+
+  p, ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $black;
+    margin-bottom: $margin-30;
+  }
+
+  ul {
+    padding-left: 20px;
+    list-style-type: disc;
+
+    li {
+      margin-bottom: $margin;
+    }
+  }
+
+  // Liens
+  a {
+    color: $blue;
+    text-decoration: underline;
+    transition: $transition-in-out;
+
+    &:hover {
+      color: $or;
+      text-decoration: none;
+    }
+  }
+
+  // Footer
+  footer p {
+    text-align: center;
+    font-size: 0.9rem;
+    color: $or;
+    margin-top: $margin-30;
+    padding-top: $padding-10;
+    border-top: $border-1px-solid-black;
+  }
+}
+
+@media (max-width: 600px) {
+  .privacy-policy {
+    margin: $margin-nav auto $margin-footer-responsive auto;
+    border : none;
+    border-radius : 0;
+  }
+}

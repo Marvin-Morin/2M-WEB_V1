@@ -1,0 +1,35 @@
+POST http://localhost:3000/devis
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "company": "Example Inc.",
+  "email": "john@example.com",
+  "phone": 123456789,
+  "site_type": ["Site Complet", "Site E-commerce (WordPress)","Site WordPress"],
+  "page_count": 5,
+  "features": ["Formulaire de Contact", "Section Blog"],  "product_count": 20,
+  "product-count": 10,
+  "payment_options": ["Carte de crédit/débit", "PayPal"],
+  "other_payment": "Aucune",
+  "delivery_options": ["Livraison nationale"],
+  "stock_management": "Oui",
+  "design" : ["Charte graphique fournie", "Besoin de recommandations visuelles ou d’exemples de sites pour s’inspirer (Je ne fait aucune maquette ou design)"],
+  "message": "Site E-commerce"
+}
+
+
+
+### Tester l'envoi du formulaire de contact
+POST http://localhost:3000/contact
+Content-Type: application/json
+
+{
+  "nom": "Dupont",
+  "prenom": "Jean",
+  "email": "jean.dupont@example.com",
+  "telephone": "0601020304",
+  "entreprise": "Dupont Enterprises",
+  "objet": "Demande d'information",
+  "message": "Bonjour, je souhaite obtenir des informations supplémentaires sur vos services."
+}

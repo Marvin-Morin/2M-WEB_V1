@@ -1,0 +1,252 @@
+<!-- <h1>Mes prestations</h1> -->
+
+<!-- Section pour les prestations -->
+<section class="prestations" itemscope itemtype="https://schema.org/Service">
+  <!-- Création d'un site vitrine -->
+  <div class="prestation" id="site-vitrine" itemscope itemprop="offers" itemtype="https://schema.org/Offer">
+    <h2 itemprop="name">Création d'un Site Vitrine</h2>
+    <p itemprop="description">
+      Présentez votre activité avec élégance et professionnalisme grâce à un
+      site vitrine personnalisé. Idéal pour les entreprises, artisans, ou
+      indépendants, ce type de site met en valeur votre identité visuelle et
+      votre message. Il inclut :
+    </p>
+    <ul>
+      <li>
+        Pages d'accueil et de présentation pour valoriser vos services et vos
+        valeurs;
+      </li>
+      <li>
+        Section portfolio ou galerie pour illustrer vos projets ou produits;
+      </li>
+      <li>Blog pour partager des articles ou actualités.</li>
+    </ul>
+  </div>
+
+  <!-- Sites complets avec fonctionnalités avancées -->
+  <div class="prestation" id="site-complet" itemscope itemprop="offers" itemtype="https://schema.org/Offer">
+    <h2 itemprop="name">Sites Complets avec Fonctionnalités Avancées</h2>
+    <p itemprop="description">
+      Au-delà d’une simple présentation, un site complet vous permet d'interagir
+      directement avec vos clients via des formulaires de contact, des pages de
+      service détaillées, ou même des calendriers pour vos prises de rendez-vous
+      en ligne. Ce type de site inclut :
+    </p>
+    <ul>
+      <li>
+        2 à 4 pages thématiques pour organiser clairement vos services ou
+        produits;
+      </li>
+      <li>
+        Pages de FAQ, témoignages, ou de contact pour une meilleure expérience
+        utilisateur.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Sites e-commerce avec WordPress -->
+  <div class="prestation" id="site-e-commerce-wordpress" itemscope itemprop="offers"
+    itemtype="https://schema.org/Offer">
+    <h2 itemprop="name">Sites E-commerce avec WordPress</h2>
+    <p itemprop="description">
+      Pour les personnes souhaitant vendre en ligne, optez pour un site e-commerce sur
+      mesure, adapté à votre identité et aux besoins de vos produits. Ce type de
+      site comprend :
+    </p>
+    <ul>
+      <li>Catalogue de produits avec descriptions et photos;</li>
+      <li>
+        Gestion des paiements (options sécurisées comme PayPal, Stripe, etc.);
+      </li>
+      <li>Options de livraison et de gestion des stocks;</li>
+      <li>
+        Pages produit optimisées SEO pour améliorer votre visibilité sur les
+        moteurs de recherche;
+      </li>
+      <li>Installation et configuration de thèmes pour un design unique;</li>
+      <li>
+        Intégration de plugins pour des fonctionnalités spécifiques comme les
+        réservations, les formulaires ou les newsletters;
+      </li>
+    </ul>
+  </div>
+
+  <h3>Options</h3>
+  <!-- SEO web semantique -->
+  <div class="prestation" id="site-e-commerce-wordpress" itemscope itemprop="offers"
+    itemtype="https://schema.org/Offer">
+    <h2 itemprop="name">SEO et Web sémantique</h2>
+    <p itemprop="description">
+      SEO (Search Engine Optimization) : Le SEO, ou référencement naturel, consiste à optimiser votre site pour qu'il
+      soit mieux compris et valorisé par les moteurs de recherche comme Google. Cela augmente vos chances d’apparaître
+      en haut des résultats lorsque les internautes cherchent des services comme les vôtres.
+      <br><br>
+      Web Sémantique : Le web sémantique va plus loin en structurant le contenu de façon très précise, en ajoutant des
+      balises spéciales qui expliquent le sens de chaque élément. Cela aide les moteurs de recherche à comprendre le
+      contexte et améliore encore votre visibilité pour les recherches spécifiques.
+    </p>
+  </div>
+  <hr>
+
+</section>
+
+<!-- Informations pour le devis -->
+
+
+
+<form (ngSubmit)="onSubmit()" #devisForm="ngForm" id="devis" itemscope itemtype="https://schema.org/FormAction">
+  <h2>Adaptez votre devis en fonction de vos besoins</h2>
+  <!-- Informations Générales -->
+  <fieldset id="informationsPersonnelles" itemscope itemtype="https://schema.org/Person">
+    <legend>Informations Générales</legend>
+    <label for="name">Nom et Prénom :</label>
+    <input type="text" id="name" name="name" [(ngModel)]="formData.name" required itemprop="name" /><br /><br />
+
+    <label for="company">Nom de l'entreprise :</label>
+    <input type="text" id="company" name="company" [(ngModel)]="formData.company" itemprop="worksFor" itemscope
+      itemtype="https://schema.org/Organization" /> <br /><br />
+
+    <label for="email">Adresse e-mail :</label>
+    <input type="email" id="email" name="email" [(ngModel)]="formData.email" required itemprop="email" /><br /><br />
+
+    <label for="phone">Numéro de téléphone :</label>
+    <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone" required itemprop="telephone" />
+  </fieldset>
+
+  <br />
+
+  <!-- Type de Site Internet -->
+  <fieldset itemscope itemtype="https://schema.org/Offer">
+    <legend>Type de Site Internet</legend>
+    <input type="checkbox" id="site-vitrine" name="site_type" [(ngModel)]="formData.site_type['site-vitrine']"
+      value="Site Vitrine" itemprop="itemOffered" />
+    <label for="site-vitrine">Site Vitrine</label><br />
+
+    <input type="checkbox" id="site-complet" name="site_type" [(ngModel)]="formData.site_type['site-complet']"
+      value="Site Complet" itemprop="itemOffered" />
+    <label for="site-complet">Site Complet</label><br />
+
+    <input type="checkbox" id="site-ecommerce" name="site_type" [(ngModel)]="formData.site_type['site-ecommerce']"
+      value="Site E-commerce" itemprop="itemOffered" />
+    <label for="site-ecommerce">Site E-commerce (WordPress)</label><br />
+
+    <input type="checkbox" id="site-wordpress" name="site_type" [(ngModel)]="formData.site_type['site-wordpress']"
+      value="Site WordPress" itemprop="itemOffered" />
+    <label for="site-wordpress">Site WordPress</label>
+  </fieldset>
+
+  <br />
+
+  <!-- Fonctionnalités Additionnelles -->
+  <fieldset itemscope itemtype="https://schema.org/Service">
+    <legend>Fonctionnalités Additionnelles</legend>
+    <label for="page-count">Pages souhaitées (Nombre approximatif) :</label>
+    <input type="number" id="page-count" name="page_count" [(ngModel)]="formData.page_count" min="1"
+      itemprop="numberOfPages" /><br /><br />
+
+    <label>Pages souhaitées</label>
+    <input type="checkbox" id="contact-form" name="features" [(ngModel)]="formData.features['contact-form']"
+      value="Formulaire de Contact" itemprop="additionalType" />
+    <label for="contact-form">Formulaire de Contact</label><br />
+
+    <input type="checkbox" id="blog" name="features" [(ngModel)]="formData.features['blog']"
+      value="Section Blog ou Actualités" itemprop="additionalType" />
+    <label for="blog">Section Blog ou Actualités</label><br />
+
+    <input type="checkbox" id="portfolio" name="features" [(ngModel)]="formData.features['portfolio']"
+      value="Portfolios ou Galeries d'images" itemprop="category" itemprop="additionalType" />
+    <label for="portfolio">Portfolios ou Galeries d'images</label><br />
+
+    <input type="checkbox" id="faq" name="features" [(ngModel)]="formData.features['faq']"
+      value="Pages FAQ ou Témoignages" itemprop="additionalType" />
+    <label for="faq">Pages FAQ ou Témoignages</label><br />
+
+    <input type="checkbox" id="booking" name="features" [(ngModel)]="formData.features['booking']"
+      value="Options de prise de rendez-vous en ligne" itemprop="additionalType" />
+    <label for="booking">Options de prise de rendez-vous en ligne</label><br />
+
+    <input type="checkbox" id="catalog" name="features" [(ngModel)]="formData.features['catalog']"
+      value="Catalogue produits" itemprop="additionalType" />
+    <label for="catalog">Catalogue produits (sans fonctionnalités e-commerce)</label>
+  </fieldset>
+
+  <br />
+
+  <!-- Pour les Sites E-commerce -->
+  <fieldset itemscope itemtype="https://schema.org/Service">
+    <legend>Pour les Sites E-commerce</legend>
+    <label for="product-count">Nombre de produits initiaux :</label>
+    <input type="number" id="product-count" name="product_count" [(ngModel)]="formData.product_count" min="15"
+      itemprop="category" /><br /><br />
+
+    <p>Options de paiement souhaitées :</p>
+    <input type="checkbox" id="payment-card" name="payment_options"
+      [(ngModel)]="formData.payment_options['payment-card']" value="Carte de crédit/débit" itemprop="paymentAccepted" />
+    <label for="payment-card">Carte de crédit/débit</label><br />
+
+    <input type="checkbox" id="paypal" name="payment_options" [(ngModel)]="formData.payment_options['paypal']"
+      value="PayPal" itemprop="paymentAccepted" />
+    <label for="paypal">PayPal</label><br />
+
+    <input type="checkbox" id="stripe" name="payment_options" [(ngModel)]="formData.payment_options['stripe']"
+      value="Stripe" itemprop="paymentAccepted" />
+    <label for="stripe">Stripe</label><br />
+
+    <!-- <input
+      type="checkbox"
+      id="other-payment-check"
+      name="payment_options"
+      [(ngModel)]="formData.payment_options['other-payment-check']"
+      value="Autre"
+    /> -->
+    <label for="other-payment">Autre (précisez) :</label>
+    <input type="text" id="other-payment" name="other_payment" [(ngModel)]="formData.other_payment"
+      itemprop="paymentAccepted" /><br /><br />
+
+    <p itemscope itemtype="https://schema.org/ParcelDelivery">Options de livraison souhaitées :</p>
+    <input type="checkbox" id="delivery-national" name="delivery_options"
+      [(ngModel)]="formData.delivery_options['delivery-national']" value="Livraison nationale" />
+    <label for="delivery-national">Livraison nationale</label><br />
+
+    <input type="checkbox" id="delivery-international" name="delivery_options"
+      [(ngModel)]="formData.delivery_options['delivery-international']" value="Livraison internationale" />
+    <label for="delivery-international">Livraison internationale</label><br />
+
+    <input type="checkbox" id="pickup" name="delivery_options" [(ngModel)]="formData.delivery_options['pickup']"
+      value="Retrait en magasin" />
+    <label for="pickup">Retrait en magasin</label><br /><br />
+
+    <label for="stock-management">Gestion des stocks :</label>
+    <input type="radio" id="stock-yes" name="stock_management" [(ngModel)]="formData.stock_management" value="Oui" />
+    <label for="stock-yes">Oui</label> <br>
+    <input type="radio" id="stock-no" name="stock_management" [(ngModel)]="formData.stock_management" value="Non" />
+    <label for="stock-no">Non</label>
+  </fieldset>
+
+  <br />
+
+  <!-- Design et Identité Visuelle -->
+  <fieldset itemscope itemtype="https://schema.org/CreativeWork">
+    <legend>Identité Visuelle</legend>
+    <input type="checkbox" id="graphic-charter" name="design" [(ngModel)]="formData.design['graphic-charter']"
+      value="Charte graphique fournie" itemprop="material" />
+    <label for="graphic-charter">Charte graphique fournie</label><br /><br />
+    <input type="checkbox" id="visual-advice" name="design" [(ngModel)]="formData.design['visual-advice']"
+      itemprop="material" value="Besoin de recommandations visuelles" />
+    <label for="visual-advice">Besoin de recommandations visuelles ou d’exemples de sites pour
+      s’inspirer (Je ne fait aucune maquette ou design)</label>
+  </fieldset>
+
+  <br />
+
+  <fieldset>
+    <legend>Message</legend>
+    <label for="message">Autres précisions</label>
+    <textarea id="message" name="message" [(ngModel)]="formData.message" rows="4" cols="50"
+      itemprop="description"></textarea>
+  </fieldset>
+
+  <button type="submit">Envoyer le devis</button>
+  <span *ngIf="hasError" id="error-message" itemprop="errorMessage">Erreur lors de l'envoi de la demande du devis</span>
+  <span *ngIf="isSubmitted" id="success-message" itemprop="successMessage">Demande de devis envoyé avec succès</span>
+</form>
