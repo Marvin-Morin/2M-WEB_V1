@@ -9,6 +9,7 @@ import { PolitiqueConfidentalitesComponent } from './components/politique-confid
 import { CGVComponent } from './components/cgv/cgv.component';
 import { PolitiqueDeRemboursementComponent } from './components/politique-de-remboursement/politique-de-remboursement.component';
 
+
 export const routes: Routes = [
     { path: '', component: HomeComponent},
     {path: 'prestations', component: PrestationsComponent },

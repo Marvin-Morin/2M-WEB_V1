@@ -1,24 +1,39 @@
-import { Component, HostListener, Renderer2 } from '@angular/core';
+import { Component, HostListener, Renderer2, ElementRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent],
+  imports: [RouterOutlet, FooterComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
+
 export class AppComponent {
-  constructor(private renderer: Renderer2) {}
 
   menuOpen = false;
+
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef, // Accède à l'élément DOM
+  ) {}
+
+  ngOnInit(): void {
+    // Écoute l'événement 'load' lorsque la page est complètement chargée
+    window.addEventListener('load', () => {
+      const loadingDiv = this.el.nativeElement.querySelector('.loadingDiv');
+      if (loadingDiv) {
+        this.renderer.setStyle(loadingDiv, 'display', 'none');  // Masque le GIF de chargement
+      }
+    });
+  }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
     document.body.classList.toggle('no-scroll', this.menuOpen);
-    console.log("menuOpen : ", this.menuOpen);
-    
+    console.log('menuOpen : ', this.menuOpen);
   }
 
   @HostListener('document:mousemove', ['$event'])
