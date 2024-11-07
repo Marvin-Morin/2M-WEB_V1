@@ -1,7 +1,6 @@
 @import "../../_variables";
 @import "../../mixins";
 
-
 .prestation {
   background-color: $background;
   width: 80%;
@@ -22,25 +21,15 @@
       margin: 10px auto;
     }
   }
-
-  h2 {
-    text-align: center;
-    color: $black;
-    text-decoration: underline;
-    margin-bottom: 40px;
-  }
 }
 
+h2,
 h3 {
-  @include titre2-3();
-  text-transform: uppercase;
+  text-align: center !important;
 }
 
-hr{
-  border-bottom : $border-1px-solid-black;
-  border-radius : 70%;
-  width: 95%;
-  margin-bottom: 50px;
+hr {
+  margin-bottom: 60px;
 }
 
 p {
@@ -48,169 +37,9 @@ p {
   text-align: center;
 }
 
-// FORM
-
-
 form {
-  max-width: 600px;
-  margin: 5px auto $margin-footer auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: $box-shadow;
-  position: relative;
-
-  p {
-    color: $blue;
-    text-align: left;
-    font-weight: bold;
-  }
-
-  h2 {
-    @include titre();
-  }
-
-  legend {
-    margin: 15px 0 25px 0;
-  }
-
+  margin: 50px auto $margin-footer auto;
 }
-
-/* Style des champs de texte et des boutons */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[type="date"],
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid $black;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-textarea {
-  resize: vertical;
-}
-
-button[type="submit"] {
-  width: 100%;
-  background-color: $blue;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: $transition-in;
-}
-
-button[type="submit"]:hover {
-  background-color: $or;
-  transition: $transition-out;
-}
-
-.success-message {
-  color: #fff;
-  background-color: #28a745;
-  padding: $padding-10;
-  border-radius: 4px;
-  margin-top: 10px;
-  display: inline-block;
-}
-
-.error-message {
-  color: #fff;
-  background-color: $red;
-  padding: $padding-10;
-  border-radius: 4px;
-  margin-top: 10px;
-  display: inline-block;
-}
-
-
-/* Style des fieldsets et des légendes */
-fieldset {
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 15px;
-}
-
-legend {
-  font-weight: bold;
-  color: $blue;
-  padding: 0 $padding-10;
-}
-
-/* Style des étiquettes et des cases à cocher */
-label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: bold;
-  width: 95%;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  margin-right: 10px;
-}
-
-input[type="checkbox"] + label,
-input[type="radio"] + label {
-  display: inline-block;
-  font-weight: normal;
-}
-
-/* Style des petites options sous les checkboxes */
-input[type="checkbox"] + label::before,
-input[type="radio"] + label::before {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 8px;
-  width: 16px;
-  height: 16px;
-}
-
-/* Style pour les messages d'erreur */
-input:invalid {
-  border-color: #e74c3c;
-}
-
-input:invalid:focus {
-  border-color: #c0392b;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: #4caf50;
-  box-shadow: $box-shadow;
-}
-
-#success-message {
-  display: block;
-  padding: $padding-10;
-  background-color: $green;
-  color: $white;
-  border-radius: $border-radius;
-  margin-top: 20px;
-  text-align: center;
-}
-
-#error-message {
-  display: block;
-  padding: $padding-10;
-  background-color: $red;
-  color: $white;
-  border-radius: $border-radius;
-  margin-top: 20px;
-  text-align: center;
-}
-
-
-
 
 @media (min-width: 1200px) {
   .prestation {
@@ -218,45 +47,18 @@ textarea:focus {
   }
 }
 
-@media (max-width : 768px) {
-  
+@media (max-width: 768px) {
   .prestation {
-    width: 80vw;
     padding: 5px 15px;
 
     p {
-    text-align: justify !important;
+      text-align: justify !important;
     }
   }
 
-  form {
-    max-width: 80vw !important;
-    
-    label {
-      width: 70%;
+  @media (max-width: 600px) {
+    form {
+      margin: 5px auto $margin-footer-responsive auto;
     }
   }
-}
-@media (max-width : 600px) {
-  form {
-  margin: 5px auto $margin-footer-responsive auto;
-  }
-}
-
-@media (max-width : 427px) {
-  h2 {
-    font-size: 18px !important;
-  }
-
-  input, label {
-    margin: 15px 0;
-  }
-
-  label {
-    width: 85% !important;
-  }
-}
-
-.fade-in-up {
-  @include apparition();
 }

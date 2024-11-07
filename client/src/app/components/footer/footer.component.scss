@@ -44,42 +44,17 @@ footer {
     padding: 15px 0;
     color: $white;
   }
-
-  hr {
-    height: 100px;
-    margin: auto;
-    width: 1px;
-    background-color: $black;
-    border: none;
-    border-radius: $border-radius-img;
-  }
 }
 
 a {
   color: $black;
-  position: relative;
-  text-decoration: none;
-  display: inline-block;
-  /* Permet aux liens de se comporter comme des blocs */
   padding: 0 5px;
-  /* Ajout d'un padding pour un meilleur clic */
+  margin: 3px 0;
 }
 
-a {
-  @include stylized-link();
-}
-
-a#image {
-  transition: all 0.3s ease-in;
-
-  &:hover::after {
-    width: 0 !important;
-  }
-}
-
-a#image:hover {
-  transform: scale(1.1);
-  transition: all 0.3s ease-out;
+hr {
+  width: 1px;
+  height: 100px;
 }
 
 @media (max-width: 600px) {
@@ -102,12 +77,8 @@ a#image:hover {
   }
 
   hr {
-    transform: rotate(-90deg);
-    /* Rotation pour mobile */
-    width: 50px;
-    /* Ajuste la largeur de hr pour mobile */
-    margin: 10px 0;
-    /* Espace autour du hr */
+    height: 1px;
+    width: $width-hr;
   }
 
   img {

@@ -1,4 +1,4 @@
-@import './variables';
+@import "./variables";
 
 @mixin flex-center($direction: row) {
   display: flex;
@@ -7,27 +7,27 @@
   flex-direction: $direction;
 }
 
-@mixin titre() {
-  color: $black;
-  font-size: clamp(20px, 5vw, 30px);  // La taille varie de 20px à 30px en fonction de la largeur de l'écran
-  margin: 25px auto;
+@mixin titre1() {
   text-align: center;
+  margin: auto;
+  font-weight: bold;
+  color: $black;
+  padding: $padding-10;
 }
 
-@mixin titre2-3() {
-  margin-top: auto;
+@mixin titre() {
+  margin: 15px auto 0px auto;
   // text-decoration: underline;
   font-weight: bold;
   // background-color: $white;
   // text-shadow: $text-shadow-or;
-  text-align: center;
-  color: $black;
+  text-align: left;
+  color: $blue;
   padding: $padding-10;
-  border-radius: $border-radius;
 }
 
 // Définition du mixin pour les liens stylisés
-@mixin stylized-link($color: $black, $underline-color: $or, $has-after: true) {
+@mixin stylized-link($color: $blue, $underline-color: $or, $has-after: true) {
   color: $color;
   position: relative;
   text-decoration: none;
@@ -61,4 +61,194 @@
 @mixin apparition($duration: 3s, $timing-function: ease) {
   opacity: 0; // L'élément est invisible au départ
   animation: apparition $duration $timing-function forwards;
+}
+
+@mixin imageLiens() {
+  transition: all 0.3s ease-in;
+
+  &:hover::after {
+    width: 0 !important;
+    display: none;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease-out;
+  }
+}
+
+@mixin form() {
+  max-width: 600px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: $box-shadow;
+  position: relative;
+
+  h2 {
+    margin-bottom: 40px;
+    color: $black;
+  }
+
+  p {
+    color: $blue !important;
+    text-align: left !important;
+    font-weight: bold;
+  }
+
+  legend {
+    margin: 15px 0 25px 0;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid $black;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    background-color: $blue;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: $transition-in;
+  }
+
+  button[type="submit"]:hover {
+    background-color: $or;
+    transition: $transition-out;
+  }
+
+  /* Style des fieldsets et des légendes */
+  fieldset {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  legend {
+    font-weight: bold;
+    color: $blue;
+    padding: 0 $padding-10;
+  }
+
+  /* Style des étiquettes et des cases à cocher */
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    width: 95%;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  input[type="checkbox"] + label,
+  input[type="radio"] + label {
+    display: inline-block;
+    font-weight: normal;
+  }
+
+  /* Style des petites options sous les checkboxes */
+  input[type="checkbox"] + label::before,
+  input[type="radio"] + label::before {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Style pour les messages d'erreur */
+  input:invalid {
+    border-color: #e74c3c;
+  }
+
+  input:invalid:focus {
+    border-color: #c0392b;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: $box-shadow;
+  }
+
+  #success-message {
+    display: block;
+    padding: $padding-10;
+    background-color: $green;
+    color: $white;
+    border-radius: $border-radius;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  #error-message {
+    display: block;
+    padding: $padding-10;
+    background-color: $red;
+    color: $white;
+    border-radius: $border-radius;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    label {
+      width: 70%;
+    }
+  }
+
+  @media (max-width: 427px) {
+    input,
+    label {
+      margin: 15px 0;
+    }
+
+    label {
+      width: 85% !important;
+    }
+  }
+
+  @media (max-width: 240px) {
+
+      padding: 7px;
+
+    fieldset {
+      padding: 8px !important;
+    }
+
+    h2 {
+      text-align: left;
+    }
+  }
+}
+
+@mixin hr() {
+  width: $width-hr;
+  height: 1px;
+  margin: auto;
+  background-color: $black;
+  border: none;
+  border-radius: $border-radius-img;
 }

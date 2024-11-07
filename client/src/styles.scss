@@ -1,4 +1,5 @@
 @import "./app/variables";
+@import './app/mixins';
 
 body {
   margin: 0;
@@ -21,7 +22,31 @@ html {
 
 a {
   text-decoration: none;
-  color: inherit;
+    @include stylized-link();
+}
+
+a.lienImg {
+  @include imageLiens();
+}
+
+h1 {
+  @include titre1();
+}
+
+h2, h3 {
+  @include titre();
+}
+
+hr {
+  @include hr();
+}
+
+form {
+  @include form();
+}
+
+.fade-in-up {
+  @include apparition();
 }
 
 /* Personnalisation de la scrollbar pour Chrome, Edge et Safari */

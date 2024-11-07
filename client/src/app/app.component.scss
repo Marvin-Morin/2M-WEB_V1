@@ -54,15 +54,10 @@ nav {
   #liens {
     width: auto;
     padding: $padding-10;
-  }
 
-  a img {
-    margin-left: 50px;
-    transition: all 0.3s ease-in;
-
-    &:hover {
-      filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.774));
-      transition: all 0.3s ease-out;
+    a {
+      color: $black;
+      margin: 0px 10px;
     }
   }
 }
@@ -72,6 +67,7 @@ nav {
 
   nav a img {
     margin-right: auto;
+    margin-left: 15px;
   }
 
   #liens {
@@ -84,13 +80,13 @@ nav {
     left: 50%;
     transform: translateX(-50%);
     background-color: $background-nav-liens;
-    font-weight: bold;
+    font-weight: 700;
     padding: 80px 0;
     z-index: 6000;
-
+    
     a {
-      margin: 10px auto !important;
       color: $or !important;
+      margin: 10px auto !important;
       font-size: 25px;
     }
 
@@ -109,7 +105,7 @@ nav {
   display: none;
   cursor: pointer;
   margin-left: auto;
-  margin-right: 50px;
+  margin-right: 25px;
   gap: 5px;
   padding: 5px;
   z-index: 6002;
@@ -151,9 +147,4 @@ nav {
 #menu-button.open span {
   background-color: $white !important;
   position: static;
-}
-
-nav #liens a {
-  @include stylized-link();
-  margin: 0px 10px;
 }

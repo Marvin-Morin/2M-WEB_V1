@@ -11,21 +11,6 @@
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
-  h1, h2 {
-    color: $blue;
-    margin-bottom: $margin-30;
-  }
-
-  h1 {
-    @include titre2-3();
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    margin-top: $margin-30;
-    margin-bottom: $margin;
-  }
-
   p, ul {
     font-size: 1rem;
     line-height: 1.6;
@@ -43,22 +28,6 @@
         color: $or;
       }
     }
-  }
-
-  // Liens
-  a {
-    @include stylized-link();
-    color: $blue;
-  }
-
-  // Footer
-  footer p {
-    text-align: center;
-    font-size: 0.9rem;
-    color: $or;
-    margin-top: $margin-30;
-    padding-top: $padding-10;
-    border-top: $border-1px-solid-black;
   }
 }
 

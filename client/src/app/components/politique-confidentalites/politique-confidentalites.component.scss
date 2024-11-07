@@ -10,22 +10,6 @@
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
-  h1, h2 {
-    color: $blue;
-    margin-bottom: $margin-30;
-  }
-
-  h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    margin-top: $margin-30;
-    margin-bottom: $margin;
-  }
-
   p, ul {
     font-size: 1rem;
     line-height: 1.6;
@@ -39,18 +23,6 @@
 
     li {
       margin-bottom: $margin;
-    }
-  }
-
-  // Liens
-  a {
-    color: $blue;
-    text-decoration: underline;
-    transition: $transition-in-out;
-
-    &:hover {
-      color: $or;
-      text-decoration: none;
     }
   }
 

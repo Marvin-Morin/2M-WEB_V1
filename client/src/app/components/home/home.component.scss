@@ -163,10 +163,6 @@ section {
   }
 }
 
-h3 {
-  @include titre2-3();
-}
-
 ul {
   border: 1px solid $black;
   border-radius: $border-radius;
@@ -191,28 +187,6 @@ ul {
   }
 }
 
-a {
-  position: relative;
-}
-
-a::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -2px;
-  width: 0;
-  height: 2px;
-  background-color: $or;
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-}
-
-a:hover::before {
-  width: 100%;
-  left: 0;
-  transform: translateX(0);
-}
-
 // DIPLOMES
 
 .carousel-container {
@@ -221,10 +195,6 @@ a:hover::before {
   margin: 50px auto $margin-footer auto;
   overflow: hidden;
   @include flex-center(column);
-
-  h2 {
-    @include titre2-3();
-  }
 
   .carousel {
     display: flex;
@@ -259,27 +229,35 @@ a:hover::before {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 878px) {
+
+  ul {
+    width: 80vw;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 770px) {
   #presentation p {
     width: 90% !important;
   }
 
   ul {
     margin: auto 5px;
+    padding: 0;
+  }
+
+  li {
+    width: 75%;
   }
 }
 
 @media (max-width: 660px) {
   li {
     text-align: left;
-    border-bottom : $border-1px-solid-black;
+    border-bottom: $border-1px-solid-black;
     padding-bottom: 15px;
   }
-}
-@media (max-width: 600px) {
+
   .carousel-container {
     margin-bottom: $margin-footer-responsive;
   }
@@ -291,8 +269,7 @@ a:hover::before {
 
 @media (max-width: 385px) {
   ul {
-    width: 55%;
-    margin: auto;
+    width: 95%;
   }
 }
 

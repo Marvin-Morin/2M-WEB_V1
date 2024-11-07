@@ -1,13 +1,6 @@
 @import '../../variables';
 @import "../../_mixins.scss";
 
-h1 {
-    @include titre();
-    margin: 50px auto 50px auto;
-    position: relative;
-    text-shadow: none;
-}
-
 #presentation {
 
     width: 80%;
@@ -32,20 +25,14 @@ h1 {
     p {
         color: $black;
     }
-
-    a {
-       @include stylized-link();
-       color: $blue;
-    }
 }
 
 @media (max-width: 600px) {
     #presentation {
-
         margin: $margin-nav auto $margin-footer-responsive auto;
     }
-}
 
-.fade-in-up {
-    @include apparition();
+    p {
+        text-align: justify;
+    }
 }
