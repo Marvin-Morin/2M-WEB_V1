@@ -5,7 +5,7 @@
     <p id="formDescription">Remplissez ce formulaire pour me contacter.</p>
 
     <!-- Informations Générales -->
-    <fieldset id="informationsPersonnelles">
+    <fieldset id="informationsPersonnelles" #fieldset>
       <legend>Informations Générales</legend>
 
       <label for="firstName">Prénom :</label>
@@ -32,7 +32,7 @@
     <br />
 
     <!-- Objet de la demande -->
-    <fieldset>
+    <fieldset #fieldset>
       <legend>Objet de la demande</legend>
 
       <label for="object">Objet :</label>
@@ -42,14 +42,14 @@
     <br />
 
     <!-- Message -->
-    <fieldset>
+    <fieldset #fieldset>
       <legend>Message</legend>
       <label for="message">Votre message :</label>
       <textarea id="message" name="message" [(ngModel)]="contactData.message" rows="4" cols="50" required
         aria-required="true"></textarea>
     </fieldset>
 
-    <button type="submit" aria-label="Envoyer le message">Envoyer le message</button>
+    <button type="submit" aria-label="Envoyer le message" #fieldset>Envoyer le message</button>
 
     <!-- Messages de retour -->
     <div role="alert" *ngIf="submissionSuccess === true" id="success-message">

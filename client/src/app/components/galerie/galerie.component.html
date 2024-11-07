@@ -20,21 +20,21 @@
 
 <section id="projets" aria-labelledby="titre-projets">
   <hr>
-  <h2 id="titre-projets">Mes créations</h2>
+  <h2 id="titre-projets" #item>Mes créations</h2>
 
   <div id="galerie" itemscope itemtype="https://schema.org/CreativeWork">
     <div *ngFor="let image of images; let i = index" itemprop="workExample" itemscope
       itemtype="https://schema.org/ImageObject">
-      <figure>
+      <figure #item>
         <img [src]="image" alt="Image de projet créé par Marvin Morin" (click)="openModal(image)"
-          itemprop="contentUrl" />
+          itemprop="contentUrl"/>
         <figcaption itemprop="caption">{{ descriptions[i] }}</figcaption>
       </figure>
     </div>
   </div>
 
   <a href="https://marvin.fronthub.fr" target="_blank" itemprop="url"
-    aria-label="Voir tous les projets de Marvin Morin">
+    aria-label="Voir tous les projets de Marvin Morin" #item>
     Voir tous mes projets
   </a>
 </section>

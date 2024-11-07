@@ -148,3 +148,7 @@ textarea:focus {
     width: 75vw !important;
   }
 }
+
+.fade-in-up {
+  @include apparition();
+}

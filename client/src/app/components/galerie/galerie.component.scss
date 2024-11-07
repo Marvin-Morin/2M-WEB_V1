@@ -42,10 +42,12 @@ section#projets {
     object-position: center;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.3s;
-
+    transition: all 0.3s ease-in;
+    transform: scale(1);
+    
     &:hover {
       transform: scale(1.1);
+      transition: all 0.3s ease-out;
     }
   }
 
@@ -56,6 +58,7 @@ section#projets {
 
   a {
     @include stylized-link();
+    color: $blue;
   }
 }
 
@@ -123,4 +126,8 @@ section#projets {
   section {
     margin-bottom: $margin-footer-responsive !important;
   }
+}
+
+.fade-in-up {
+  @include apparition();
 }

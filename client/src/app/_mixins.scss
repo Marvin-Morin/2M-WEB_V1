@@ -56,3 +56,9 @@
     }
   }
 }
+
+// Mixin pour l'animation d'apparition
+@mixin apparition($duration: 3s, $timing-function: ease) {
+  opacity: 0; // L'élément est invisible au départ
+  animation: apparition $duration $timing-function forwards;
+}

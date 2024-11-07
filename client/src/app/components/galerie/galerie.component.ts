@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-galerie',
@@ -9,6 +9,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./galerie.component.scss']
 })
 export class GalerieComponent {
+
+  // Utilisation de @ViewChild pour cibler des éléments spécifiques
+  @ViewChildren('item') itemRefRef!: QueryList<ElementRef>;
+
+  ngAfterViewInit() {
+    // Vérification de la disponibilité des éléments avant de les observer
+    if (this.itemRefRef && this.itemRefRef.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+            observer.unobserve(entry.target); // Arrête l'observation une fois l'animation appliquée
+          }
+        });
+      });
+
+      // Observer les éléments pour appliquer l'animation
+      this.itemRefRef.toArray().forEach((element) => {
+        observer.observe(element.nativeElement);
+      });
+
+    } else {
+      console.error('Un ou plusieurs éléments ne sont pas disponibles pour l\'animation.');
+    }
+  }
 
   images = [
     'img/galerie/projet_Marvin_Morin1.png',

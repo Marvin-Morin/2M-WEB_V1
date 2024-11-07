@@ -18,7 +18,7 @@
     </h1>
   </div>
 
-  <div id="presentation">
+  <div id="presentation" #presentation>
     <p itemprop="description">
       Je vous propose mes services complets de création de sites web, adaptés à
       tous vos besoins : du site vitrine professionnel pour présenter votre
@@ -27,7 +27,7 @@
       WordPress.
     </p>
     <h3>Voici ce que je peux réaliser pour vous :</h3>
-    <ul itemscope itemtype="https://schema.org/ItemList">
+    <ul itemscope itemtype="https://schema.org/ItemList" #liste>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
         <a href="/prestations#site-vitrine" itemprop="url">
           <span itemprop="description">Création de sites vitrines pour une présence en ligne élégante et professionnelle.</span>
@@ -57,7 +57,7 @@
   </div>
 </section>
 
-<div class="carousel-container">
+<div class="carousel-container" #carousel>
   <h2 itemprop="name">Mes diplômes</h2>
   <div itemscope itemtype="https://schema.org/EducationalOccupationalCredential" class="carousel" [style.transform]="transformStyle">
     <meta itemprop="credentialCategory" content="Web Development Certification">

@@ -53,7 +53,7 @@ nav {
 
   #liens {
     width: auto;
-    margin: auto;
+    padding: $padding-10;
   }
 
   a img {
@@ -91,13 +91,14 @@ nav {
     a {
       margin: 10px auto !important;
       color: $or !important;
+      font-size: 25px;
     }
 
   }
 
   .open {
     display: flex !important;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     overflow-y: hidden;
     gap: 15px;
@@ -149,6 +150,7 @@ nav {
 
 #menu-button.open span {
   background-color: $white !important;
+  position: static;
 }
 
 nav #liens a {

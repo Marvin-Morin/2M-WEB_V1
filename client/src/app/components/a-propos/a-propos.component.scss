@@ -3,8 +3,8 @@
 
 h1 {
     @include titre();
-    margin: 50px auto 50px auto; 
-    position: relative; 
+    margin: 50px auto 50px auto;
+    position: relative;
     text-shadow: none;
 }
 
@@ -34,16 +34,8 @@ h1 {
     }
 
     a {
-        text-decoration: underline;
-        padding: 5px;
-        transition: all .3s ease-in;
-    }
-    
-    a:hover {
-        background-color: $black;
-        color: $or;
-        border-radius: $border-radius-3px;
-        transition: all .3s ease-out;
+       @include stylized-link();
+       color: $blue;
     }
 }
 
@@ -52,4 +44,8 @@ h1 {
 
         margin: $margin-nav auto $margin-footer-responsive auto;
     }
+}
+
+.fade-in-up {
+    @include apparition();
 }

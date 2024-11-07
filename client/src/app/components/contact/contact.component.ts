@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
 import { ContactService } from '../../services/contact.service';
 import { Contact } from '../../interfaces/contact';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReseauxSociauxComponent } from "../reseaux-sociaux/reseaux-sociaux.component";
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-contact',
@@ -15,7 +17,30 @@ import { ReseauxSociauxComponent } from "../reseaux-sociaux/reseaux-sociaux.comp
 
 
 
-export class ContactComponent {
+export class ContactComponent implements AfterViewInit {
+
+  @ViewChildren('fieldset') fieldsetRef!: QueryList<ElementRef>;
+
+  ngAfterViewInit() {
+    // Vérification de la disponibilité des éléments avant de les observer
+    if (this.fieldsetRef && this.fieldsetRef.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+            observer.unobserve(entry.target); // Arrête l'observation une fois l'animation appliquée
+          }
+        });
+      });
+
+      // Observer les éléments pour appliquer l'animation
+      this.fieldsetRef.toArray().forEach((element) => {
+        observer.observe(element.nativeElement);
+      });
+    } else {
+      console.error('Un ou plusieurs éléments ne sont pas disponibles pour l\'animation.');
+    }
+  }
 
   contactData: Contact = {
     name: '',
@@ -26,23 +51,23 @@ export class ContactComponent {
     object: '',
     message: '',
   };
-  
+
 
   submissionSuccess: boolean | null = null;
 
-  constructor(private contactService: ContactService) {}
+  constructor(private contactService: ContactService) { }
 
   onSubmit() {
 
     // console.log("contactData : ", this.contactData);
-    
+
 
     const formattedDataContact = {
       ...this.contactData, // Utilisation de l'opérateur spread pour copier les données du formulaire
     };
 
     // console.log("formattedDataContact : ", formattedDataContact);
-    
+
 
     this.contactService.sendContactForm(formattedDataContact).subscribe({
       next: (response) => {
