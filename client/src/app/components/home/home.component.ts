@@ -10,6 +10,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class HomeComponent implements AfterViewInit {
   // Utilisation de @ViewChild pour cibler des éléments spécifiques
+  @ViewChild('titre') titrteRef!: ElementRef;
   @ViewChild('presentation') presentationRef!: ElementRef;
   @ViewChild('liste') listRef!: ElementRef;
   @ViewChild('carousel') carouselRef!: ElementRef;
@@ -34,6 +35,7 @@ export class HomeComponent implements AfterViewInit {
       });
 
       // Observer les éléments pour appliquer l'animation
+      observer.observe(this.titrteRef.nativeElement);
       observer.observe(this.presentationRef.nativeElement);
       observer.observe(this.listRef.nativeElement);
       observer.observe(this.carouselRef.nativeElement);

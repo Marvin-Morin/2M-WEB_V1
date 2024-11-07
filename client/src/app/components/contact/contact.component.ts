@@ -2,7 +2,6 @@ import { ContactService } from '../../services/contact.service';
 import { Contact } from '../../interfaces/contact';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ReseauxSociauxComponent } from "../reseaux-sociaux/reseaux-sociaux.component";
 import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 
@@ -10,7 +9,7 @@ import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildre
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReseauxSociauxComponent],
+  imports: [CommonModule, FormsModule,],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
