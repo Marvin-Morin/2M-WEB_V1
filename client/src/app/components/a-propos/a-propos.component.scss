@@ -15,6 +15,12 @@
         border: $border-1px-solid-black;
         border-radius: $border-radius-img;
         margin-top: 50px;
+        transition: all .2s ease-in;
+
+        &:hover {
+            transform: rotate(180deg);
+            transition: all .4s ease-out;
+        }
     }
 
     figure {
