@@ -231,8 +231,7 @@
   }
 
   @media (max-width: 240px) {
-
-      padding: 7px;
+    padding: 7px;
 
     fieldset {
       padding: 8px !important;
@@ -251,4 +250,22 @@
   background-color: $black;
   border: none;
   border-radius: $border-radius-img;
+}
+
+@mixin animationLink() {
+  @keyframes slideInFromTopRight {
+    0% {
+      opacity: 0;
+      transform: translateY(-0%) translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) translateX(-50%);
+    }
+  }
+
+  width: auto;
+  padding: $padding-10;
+  transition: all 0.3s ease-in-out;
+  animation: slideInFromTopRight 0.5s ease-out forwards;
 }
