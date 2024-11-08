@@ -1,12 +1,14 @@
 import { Component, HostListener, Renderer2, ElementRef } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterModule, Router } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { LiensComponent } from "./components/liens/liens.component";
+import { ActiveLinkService } from './services/active-link.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, CommonModule],
+  imports: [RouterOutlet, RouterModule, FooterComponent, CommonModule, LiensComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -15,10 +17,24 @@ export class AppComponent {
 
   menuOpen = false;
 
+  activeLink: string = ''; // Initialise le lien actif
+
   constructor(
     private renderer: Renderer2,
     private el: ElementRef, // Accède à l'élément DOM
-  ) {}
+    private router: Router,
+    private activeLinkService: ActiveLinkService // Injection du service
+  ) { }
+
+  setActiveLink(link: string) {
+    this.activeLinkService.setActiveLink(link); // Utilise le service pour mettre à jour le lien actif
+    // Navigue vers le lien avec le fragment s'il est défini
+    if (link === 'devis') {
+      this.router.navigate(['/prestations'], { fragment: 'devis' });
+    } else {
+      this.router.navigate([`/${link}`]);
+    }
+  }
 
   ngOnInit(): void {
     // Écoute l'événement 'load' lorsque la page est complètement chargée

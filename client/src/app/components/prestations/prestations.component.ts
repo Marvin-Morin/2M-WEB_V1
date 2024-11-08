@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Import du FormsModule
 import { Devis } from '../../interfaces/devis';
 import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -14,35 +16,56 @@ import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildre
 })
 export class PrestationsComponent implements AfterViewInit {
 
+  // Injection du service pour gérer la soumission du formulaire
+  constructor(
+    private devisService: DevisService,
+    private routes: ActivatedRoute
+  ) { }
+
+  private fragmentSubscription!: Subscription;
+
   // Utilisation de @ViewChild pour cibler des éléments spécifiques
   @ViewChildren('prestation') prestationsRefs!: QueryList<ElementRef>;
   @ViewChildren('fieldset') fieldsetRef!: QueryList<ElementRef>;
 
+
   ngAfterViewInit() {
-    // Vérification de la disponibilité des éléments avant de les observer
-    if (this.prestationsRefs && this.prestationsRefs.length > 0 && this.fieldsetRef && this.fieldsetRef.length > 0) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-            observer.unobserve(entry.target); // Arrête l'observation une fois l'animation appliquée
-          }
-        });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
       });
+    });
 
-      // Observer les éléments pour appliquer l'animation
-      this.prestationsRefs.toArray().forEach((element) => {
-        observer.observe(element.nativeElement);
-      });
+    this.prestationsRefs.forEach((element) => {
+      observer.observe(element.nativeElement);
+    });
+    this.fieldsetRef.forEach((element) => {
+      observer.observe(element.nativeElement);
+    });
 
-      this.fieldsetRef.toArray().forEach((element) => {
-        observer.observe(element.nativeElement);
-      })
+    // Subscribe to route fragment only once
+    this.fragmentSubscription = this.routes.fragment.subscribe((fragment) => {
+      if (fragment) {
+        const target = document.getElementById(fragment);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      // Unsubscribe after first scroll to prevent repetitive scroll
+      this.fragmentSubscription.unsubscribe();
+    });
+  }
 
-    } else {
-      console.error('Un ou plusieurs éléments ne sont pas disponibles pour l\'animation.');
+  // Cleanup if necessary when component is destroyed
+  ngOnDestroy() {
+    if (this.fragmentSubscription) {
+      this.fragmentSubscription.unsubscribe();
     }
   }
+
 
   // Propriétés pour gérer l'état du formulaire
   isSubmitted: boolean = false; // Indique si le formulaire a été soumis
@@ -106,14 +129,15 @@ export class PrestationsComponent implements AfterViewInit {
       'visual-advice': false, // Besoin de recommandations visuelles ou d’exemples de sites pour s’inspirer (Je ne fait aucune maquette ou design)
     },
 
+    options: {
+      'SEO': false,
+      'web-semantique': false,
+    },
+
     // Champ pour un message personnalisé de l'utilisateur
     message: '',
   };
 
-
-
-  // Injection du service pour gérer la soumission du formulaire
-  constructor(private devisService: DevisService) { }
 
 
 
@@ -125,9 +149,10 @@ export class PrestationsComponent implements AfterViewInit {
       payment_options: this.formData.payment_options, // Sélection des options de paiement
       delivery_options: this.formData.delivery_options, // Sélection des options de livraison
       design: this.formData.design, // Sélection des options de design
+      options: this.formData.options, // Sélection des options des options
     };
 
-    // console.log(formattedData);
+    console.log(formattedData);
 
 
 

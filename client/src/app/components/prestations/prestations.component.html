@@ -175,8 +175,8 @@
   <!-- Pour les Sites E-commerce -->
   <fieldset itemscope itemtype="https://schema.org/Service" #fieldset>
     <legend>Pour les Sites E-commerce</legend>
-    <label for="product-count">Nombre de produits initiaux :</label>
-    <input type="number" id="product-count" name="product_count" [(ngModel)]="formData.product_count" min="15"
+    <label for="product-count">Nombre de produits initiaux : (10 min)</label>
+    <input type="number" id="product-count" name="product_count" [(ngModel)]="formData.product_count" min="10"
       itemprop="category" /><br /><br />
 
     <p>Options de paiement souhaitées :</p>
@@ -235,6 +235,19 @@
       itemprop="material" value="Besoin de recommandations visuelles" />
     <label for="visual-advice">Besoin de recommandations visuelles ou d’exemples de sites pour
       s’inspirer (Je ne fait aucune maquette ou design)</label>
+  </fieldset>
+
+  <br />
+
+  <!-- Design et Identité Visuelle -->
+  <fieldset itemscope itemtype="https://schema.org/CreativeWork" #fieldset>
+    <legend>Options</legend>
+    <input type="checkbox" id="SEO" name="options" [(ngModel)]="formData.options['SEO']"
+      value="SEO" itemprop="material" />
+    <label for="SEO">SEO</label><br /><br />
+    <input type="checkbox" id="web-semantique" name="options" [(ngModel)]="formData.options['web-semantique']"
+      itemprop="material" value="Web sémantique" />
+    <label for="web-semantique">Web sémantique</label>
   </fieldset>
 
   <br />

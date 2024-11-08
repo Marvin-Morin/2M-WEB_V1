@@ -1,14 +1,14 @@
-  <div class="layout">
+<div class="layout">
 
-    <!-- Overlay de chargement -->
-<div class="loadingDiv" id="loading">
-  <img src="./gif/Ellipsis@1x-1.3s-200px-200px.gif" alt="Chargement..." />
-</div>
+  <!-- Overlay de chargement -->
+  <div class="loadingDiv" id="loading">
+    <img src="./gif/Ellipsis@1x-1.3s-200px-200px.gif" alt="Chargement..." />
+  </div>
 
   <div></div>
 
   <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
-    <a href="/" itemprop="url" class="lienImg">
+    <a (click)="setActiveLink('')" [class.active]="activeLink === ''" itemprop="url" class="lienImg">
       <img src="./img/logo/logo2MWebAvecFond.png" alt="Logo" itemprop="image" />
     </a>
 
@@ -18,26 +18,8 @@
       <span></span>
     </div>
 
-    <div
-      id="liens"
-      [class.open]="menuOpen"
-      itemscope
-      itemtype="https://schema.org/SiteNavigationElement"
-    >
-      <a href="/prestations" itemprop="url"
-        ><span itemprop="name">Prestation</span></a
-      >
-      <a href="/a-propos" itemprop="url"
-        ><span itemprop="name">À propos</span></a
-      >
-      <a href="/galerie" itemprop="url"><span itemprop="name">Galerie</span></a>
-      <a href="/prestations#devis" itemprop="url"
-        ><span itemprop="name">Devis</span></a
-      >
-      <a href="/contact" itemprop="url"><span itemprop="name">Contact</span></a>
-      <a href="https://marvin.fronthub.fr/" itemprop="url"
-        ><span itemprop="name">Portfolio</span></a
-      >
+    <div id="liens" [class.open]="menuOpen" itemscope itemtype="https://schema.org/SiteNavigationElement">
+      <app-liens></app-liens>
     </div>
   </nav>
 

@@ -16,7 +16,7 @@ footer {
   gap: 20px;
   font-size: 13px;
 
-  .liensFooter {
+  .liensFooter, app-liens {
     display: flex;
     flex-direction: column;
     /* Garde les liens en colonne */

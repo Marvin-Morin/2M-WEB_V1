@@ -20,7 +20,7 @@ const formulaireController = (req, res) => __awaiter(void 0, void 0, void 0, fun
     try {
         // Destructuration des champs reçus dans la requête, avec des valeurs par défaut pour les champs non spécifiés.
         // Cela permet de gérer les cas où certains champs ne sont pas fournis par l'utilisateur.
-        const { name = "Non spécifié", company = "Non spécifié", email = "Non spécifié", phone = "Non spécifié", site_type = {}, page_count = "Non spécifié", features = {}, product_count = "Non spécifié", payment_options = {}, other_payment = "Non spécifié", delivery_options = {}, stock_management = "Non spécifié", design = {}, message = "Non spécifié", } = req.body;
+        const { name = "Non spécifié", company = "Non spécifié", email = "Non spécifié", phone = "Non spécifié", site_type = {}, page_count = "Non spécifié", features = {}, product_count = "Non spécifié", payment_options = {}, other_payment = "Non spécifié", delivery_options = {}, stock_management = "Non spécifié", design = {}, options = {}, message = "Non spécifié", } = req.body;
         // console.log("req body controller: ", req.body);
         // Validation des champs requis
         if (!name && !email && !phone) {
@@ -49,7 +49,6 @@ const formulaireController = (req, res) => __awaiter(void 0, void 0, void 0, fun
             .filter(([key, value]) => value === true)
             .map(([key]) => key.replace(/-/g, " "))
             .join(", ") || "Non spécifié";
-        // console.log("selectedpaymentOptions : ", selectedpaymentOptions);
         const selectedDesign = Object.entries(design)
             .filter(([key, value]) => value === true)
             .map(([key]) => key.replace(/-/g, " "))
@@ -60,6 +59,11 @@ const formulaireController = (req, res) => __awaiter(void 0, void 0, void 0, fun
             .map(([key]) => key.replace(/-/g, " "))
             .join(", ") || "Non spécifié";
         // console.log("selecteddeliveryOptions : ", selecteddeliveryOptions);
+        const selectedOptions = Object.entries(options)
+            .filter(([key, value]) => value === true)
+            .map(([key]) => key.replace(/-/g, " "))
+            .join(", ") || "Non spécifié";
+        console.log("selectedOptions : ", selectedOptions);
         // Options de l'email
         // Configuration des options pour l'email, en utilisant les informations récupérées dans `req.body`.
         // Objectif : Envoi d'un email avec les informations du formulaire de demande de devis.
@@ -107,6 +111,9 @@ const formulaireController = (req, res) => __awaiter(void 0, void 0, void 0, fun
 
     Design ? :
     ${selectedDesign || "Non spécifié"}
+
+    Options :
+    ${selectedOptions || "Non spécifié"}
 
     Message: 
     ${message}
@@ -161,6 +168,10 @@ const formulaireController = (req, res) => __awaiter(void 0, void 0, void 0, fun
         <ul>${selectedDesign || "<li>Aucune identité visuelle précisée</li>"}</ul>
         
         <hr style="border-top: 1px solid #ccc;">
+
+        <h3 style="color: #0056b3;">Options</h3>
+        <p>${selectedOptions || "Aucune options choisis"}</p>
+        
         
         <h3 style="color: #0056b3;">Message</h3>
         <p>${message}</p>

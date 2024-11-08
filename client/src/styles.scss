@@ -22,8 +22,15 @@ html {
 
 a {
   text-decoration: none;
-    @include stylized-link();
+  @include stylized-link();
+  cursor: pointer;
+
 }
+
+.active {
+  color: $blue !important;
+}
+
 
 a.lienImg {
   @include imageLiens();
@@ -33,7 +40,8 @@ h1 {
   @include titre1();
 }
 
-h2, h3 {
+h2,
+h3 {
   @include titre();
 }
 
@@ -51,20 +59,26 @@ form {
 
 /* Personnalisation de la scrollbar pour Chrome, Edge et Safari */
 ::-webkit-scrollbar {
-  width: 12px; /* Largeur de la scrollbar */
-  background-color: #000; /* Arrière-plan noir */
+  width: 12px;
+  /* Largeur de la scrollbar */
+  background-color: #000;
+  /* Arrière-plan noir */
 }
 
 /* Couleur de la poignée de la scrollbar */
 ::-webkit-scrollbar-thumb {
-  background-color: $or; /* Marron bois */
-  border-radius: 6px; /* Coins arrondis pour la poignée */
-  border: 2px solid #000; /* Bord noir autour de la poignée */
+  background-color: $or;
+  /* Marron bois */
+  border-radius: 6px;
+  /* Coins arrondis pour la poignée */
+  border: 2px solid #000;
+  /* Bord noir autour de la poignée */
 }
 
 /* Arrière-plan de la track (fond derrière la poignée) */
 ::-webkit-scrollbar-track {
-  background-color: #000; /* Noir pour la track */
+  background-color: #000;
+  /* Noir pour la track */
 }
 
 /* Chemin d'accès aux polices - adaptez si nécessaire */
@@ -192,6 +206,7 @@ form {
     opacity: 0;
     transform: translateY(30px) scale(0.9);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);

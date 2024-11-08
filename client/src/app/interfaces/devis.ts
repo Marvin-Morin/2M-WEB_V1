@@ -36,5 +36,9 @@ export interface Devis {
     'graphic-charter': boolean;
     'visual-advice': boolean;
   };
+  options: {
+    'SEO': boolean;
+    'web-semantique': boolean
+  }
   message: string;
 }

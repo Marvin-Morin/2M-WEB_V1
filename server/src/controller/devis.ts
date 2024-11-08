@@ -25,6 +25,7 @@ export const formulaireController = async (
       delivery_options = {},
       stock_management = "Non spécifié",
       design = {},
+      options = {},
       message = "Non spécifié",
     } = req.body;
 
@@ -38,6 +39,7 @@ export const formulaireController = async (
       });
       return; // Arrête l'exécution si les champs requis sont manquants
     }
+
     // Transformation des objets en chaînes de caractères lisibles.
     // Objectif : Les options sélectionnées sont transformées en chaînes lisibles pour être affichées dans l'email.
     // Utilisation de `Object.entries` pour récupérer uniquement les options cochées et les formater sous forme de liste.
@@ -67,8 +69,6 @@ export const formulaireController = async (
         .map(([key]) => key.replace(/-/g, " "))
         .join(", ") || "Non spécifié";
 
-    // console.log("selectedpaymentOptions : ", selectedpaymentOptions);
-
     const selectedDesign =
       Object.entries(design)
         .filter(([key, value]) => value === true)
@@ -84,6 +84,14 @@ export const formulaireController = async (
         .join(", ") || "Non spécifié";
 
     // console.log("selecteddeliveryOptions : ", selecteddeliveryOptions);
+
+    const selectedOptions =
+      Object.entries(options)
+        .filter(([key, value]) => value === true)
+        .map(([key]) => key.replace(/-/g, " "))
+        .join(", ") || "Non spécifié";
+
+    console.log("selectedOptions : ", selectedOptions);
 
     // Options de l'email
     // Configuration des options pour l'email, en utilisant les informations récupérées dans `req.body`.
@@ -133,6 +141,9 @@ export const formulaireController = async (
 
     Design ? :
     ${selectedDesign || "Non spécifié"}
+
+    Options :
+    ${selectedOptions || "Non spécifié"}
 
     Message: 
     ${message}
@@ -185,11 +196,14 @@ export const formulaireController = async (
         <hr style="border-top: 1px solid #ccc;">
         
         <h3 style="color: #0056b3;">Design et Identité Visuelle</h3>
-        <ul>${
-          selectedDesign || "<li>Aucune identité visuelle précisée</li>"
+        <ul>${selectedDesign || "<li>Aucune identité visuelle précisée</li>"
         }</ul>
         
         <hr style="border-top: 1px solid #ccc;">
+
+        <h3 style="color: #0056b3;">Options</h3>
+        <p>${selectedOptions || "Aucune options choisis"}</p>
+        
         
         <h3 style="color: #0056b3;">Message</h3>
         <p>${message}</p>
