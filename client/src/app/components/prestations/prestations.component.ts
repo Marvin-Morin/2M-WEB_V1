@@ -2,9 +2,10 @@ import { DevisService } from '../../services/devis.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Import du FormsModule
 import { Devis } from '../../interfaces/devis';
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ActiveLinkService } from '../../services/active-link.service';
 
 
 @Component({
@@ -16,13 +17,23 @@ import { Subscription } from 'rxjs';
 })
 export class PrestationsComponent implements AfterViewInit {
 
+  activeLink: string = '';
+  private subscription: Subscription = new Subscription(); // Initialisation de l'abonnement
+
   // Injection du service pour gérer la soumission du formulaire
   constructor(
     private devisService: DevisService,
-    private routes: ActivatedRoute
+    private routes: ActivatedRoute,
+    private activeLinkService: ActiveLinkService
   ) { }
 
-  private fragmentSubscription!: Subscription;
+  ngOnInit() {
+    this.subscription = this.activeLinkService.activeLink$.subscribe(link => {
+      this.activeLink = link;
+    });
+  }
+
+  private fragmentSubscription: Subscription | null = null;
 
   // Utilisation de @ViewChild pour cibler des éléments spécifiques
   @ViewChildren('prestation') prestationsRefs!: QueryList<ElementRef>;
@@ -38,14 +49,14 @@ export class PrestationsComponent implements AfterViewInit {
         }
       });
     });
-
+  
     this.prestationsRefs.forEach((element) => {
       observer.observe(element.nativeElement);
     });
     this.fieldsetRef.forEach((element) => {
       observer.observe(element.nativeElement);
     });
-
+  
     // Subscribe to route fragment only once
     this.fragmentSubscription = this.routes.fragment.subscribe((fragment) => {
       if (fragment) {
@@ -54,17 +65,25 @@ export class PrestationsComponent implements AfterViewInit {
           target.scrollIntoView({ behavior: 'smooth' });
         }
       }
+  
       // Unsubscribe after first scroll to prevent repetitive scroll
-      this.fragmentSubscription.unsubscribe();
+      if (this.fragmentSubscription) {
+        this.fragmentSubscription.unsubscribe();
+      }
     });
   }
+  
 
   // Cleanup if necessary when component is destroyed
   ngOnDestroy() {
     if (this.fragmentSubscription) {
       this.fragmentSubscription.unsubscribe();
     }
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
+
 
 
   // Propriétés pour gérer l'état du formulaire

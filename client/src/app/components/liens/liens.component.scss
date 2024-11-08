@@ -1,6 +1,22 @@
 @import "../../variables";
+@import "../../mixins";
 
-a {
-    color: $black;
-    margin: 0px 10px;
+a.no-style {
+    font-size: 14px;
+    // color: black;
+    margin: 0 10px;
+}
+
+/* Menu caché sur mobile */
+@media (max-width: 768px) {
+
+    nav a img {
+        margin-right: auto;
+        margin-left: 15px;
+    }
+}
+
+::ng-deep footer section.navLink {
+    @include flex-center(column);
+    gap: 7px;
 }

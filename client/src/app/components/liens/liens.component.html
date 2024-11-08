@@ -1,18 +1,25 @@
-<a (click)="setActiveLink('prestations')" [class.active]="activeLink === 'prestations'" itemprop="url">
-    <span itemprop="name">Prestation</span>
-</a>
-<a (click)="setActiveLink('a-propos')" [class.active]="activeLink === 'a-propos'" itemprop="url">
-    <span itemprop="name">À propos</span>
-</a>
-<a (click)="setActiveLink('galerie')" [class.active]="activeLink === 'galerie'" itemprop="url">
-    <span itemprop="name">Galerie</span>
-</a>
-<a (click)="setActiveLink('devis')" [class.active]="activeLink === 'devis'" itemprop="url">
-    <span itemprop="name">Devis</span>
-</a>
-<a (click)="setActiveLink('contact')" [class.active]="activeLink === 'contact'" itemprop="url">
-    <span itemprop="name">Contact</span>
-</a>
-<a href="https://marvin.fronthub.fr/" itemprop="url">
-    <span itemprop="name">Portfolio</span>
-</a>
+<section class="navLink">
+    <a (click)="setActiveLink('prestations')" (click)="toggleMenu()" [class.active]="activeLink === 'prestations'"
+        itemprop="url" class="no-style">
+        <span itemprop="name">Prestation</span>
+    </a>
+    <a (click)="setActiveLink('a-propos')" (click)="toggleMenu()" [class.active]="activeLink === 'a-propos'"
+        itemprop="url" class="no-style">
+        <span itemprop="name">À propos</span>
+    </a>
+    <a (click)="setActiveLink('galerie')" (click)="toggleMenu()" [class.active]="activeLink === 'galerie'"
+        itemprop="url" class="no-style">
+        <span itemprop="name">Galerie</span>
+    </a>
+    <a (click)="setActiveLink('devis')" (click)="toggleMenu()" [class.active]="activeLink === 'devis'" itemprop="url"
+        class="no-style">
+        <span itemprop="name">Devis</span>
+    </a>
+    <a (click)="setActiveLink('contact')" (click)="toggleMenu()" [class.active]="activeLink === 'contact'"
+        itemprop="url" class="no-style">
+        <span itemprop="name">Contact</span>
+    </a>
+    <a href="https://marvin.fronthub.fr/" itemprop="url" (click)="toggleMenu()" class="no-style">
+        <span itemprop="name">Portfolio</span>
+    </a>
+</section>

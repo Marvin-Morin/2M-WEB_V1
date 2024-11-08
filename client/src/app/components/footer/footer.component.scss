@@ -16,13 +16,12 @@ footer {
   gap: 20px;
   font-size: 13px;
 
-  .liensFooter, app-liens {
-    display: flex;
-    flex-direction: column;
-    /* Garde les liens en colonne */
-    align-items: center;
+  .liensFooter {
+    @include flex-center(column);
     /* Centre les éléments enfants horizontalement */
     margin: auto;
+    gap: 7px;
+    font-size: 14px;
   }
 
   img {

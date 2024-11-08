@@ -36,4 +36,15 @@ export class LiensComponent {
       this.router.navigate([`/${link}`]);
     }
   }
+
+  // Pour fermer le menu en responsive
+
+  menuOpen = false;
+  
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    document.body.classList.toggle('no-scroll', this.menuOpen);
+    console.log('menuOpen : ', this.menuOpen);
+  }
 }
