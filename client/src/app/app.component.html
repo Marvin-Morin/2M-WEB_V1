@@ -18,8 +18,8 @@
       <span></span>
     </div>
 
-    <div id="liens" [class.open]="menuOpen" itemscope itemtype="https://schema.org/SiteNavigationElement">
-      <app-liens></app-liens>
+    <div class="navLink" id="liens" [class.open]="menuOpen" itemscope itemtype="https://schema.org/SiteNavigationElement">
+      <app-liens (menuClose)="menuOpen = false"></app-liens>
     </div>
   </nav>
 

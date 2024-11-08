@@ -1,25 +1,25 @@
-<section class="navLink">
-    <a (click)="setActiveLink('prestations')" (click)="toggleMenu()" [class.active]="activeLink === 'prestations'"
+<section>
+    <a (click)="setActiveLink('prestations')" (click)="toggleMenuLink()" [class.active]="activeLink === 'prestations'"
         itemprop="url" class="no-style">
         <span itemprop="name">Prestation</span>
     </a>
-    <a (click)="setActiveLink('a-propos')" (click)="toggleMenu()" [class.active]="activeLink === 'a-propos'"
+    <a (click)="setActiveLink('a-propos')" (click)="toggleMenuLink()" [class.active]="activeLink === 'a-propos'"
         itemprop="url" class="no-style">
         <span itemprop="name">À propos</span>
     </a>
-    <a (click)="setActiveLink('galerie')" (click)="toggleMenu()" [class.active]="activeLink === 'galerie'"
+    <a (click)="setActiveLink('galerie')" (click)="toggleMenuLink()" [class.active]="activeLink === 'galerie'"
         itemprop="url" class="no-style">
         <span itemprop="name">Galerie</span>
     </a>
-    <a (click)="setActiveLink('devis')" (click)="toggleMenu()" [class.active]="activeLink === 'devis'" itemprop="url"
+    <a (click)="setActiveLink('devis')" (click)="toggleMenuLink()" [class.active]="activeLink === 'devis'" itemprop="url"
         class="no-style">
         <span itemprop="name">Devis</span>
     </a>
-    <a (click)="setActiveLink('contact')" (click)="toggleMenu()" [class.active]="activeLink === 'contact'"
+    <a (click)="setActiveLink('contact')" (click)="toggleMenuLink()" [class.active]="activeLink === 'contact'"
         itemprop="url" class="no-style">
         <span itemprop="name">Contact</span>
     </a>
-    <a href="https://marvin.fronthub.fr/" itemprop="url" (click)="toggleMenu()" class="no-style">
+    <a href="https://marvin.fronthub.fr/" itemprop="url" (click)="toggleMenuLink()" class="no-style">
         <span itemprop="name">Portfolio</span>
     </a>
 </section>

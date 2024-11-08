@@ -2,25 +2,26 @@
 @import "../../mixins";
 
 footer {
-  // background-color: $background-nav-footer;
   color: $black;
   text-align: center;
   position: absolute;
   bottom: 0;
   right: 0;
+  left: 0; // Ajoutez cette ligne pour centrer le footer horizontalement
   width: 100vw;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1px auto 1px 1fr;
-  /* Colonne pour les liens, séparateurs et image */
+  grid-template-columns: 0.7fr 1px auto 1px 1fr;
   align-items: center;
   gap: 20px;
   font-size: 13px;
+
 
   .liensFooter {
     @include flex-center(column);
     /* Centre les éléments enfants horizontalement */
     margin: auto;
-    gap: 7px;
+    gap: $gap-link-footer;
     font-size: 14px;
   }
 
@@ -44,6 +45,23 @@ footer {
     color: $white;
   }
 }
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1px auto 1px 1fr;
+  gap: 20px;
+  font-size: 13px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 0.7fr 1px auto 1px 1fr;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
 
 a {
   color: $black;
@@ -90,5 +108,18 @@ hr {
 
   p {
     width: 100% !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .lienImg img {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media (max-width: 670px) {
+  .lienImg img {
+    width: 70px;
+    height: 70px;
   }
 }

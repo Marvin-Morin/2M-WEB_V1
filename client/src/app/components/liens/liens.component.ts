@@ -38,13 +38,10 @@ export class LiensComponent {
   }
 
   // Pour fermer le menu en responsive
+  @Output() menuClose: EventEmitter<void> = new EventEmitter<void>();
 
-  menuOpen = false;
-  
-
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-    document.body.classList.toggle('no-scroll', this.menuOpen);
-    console.log('menuOpen : ', this.menuOpen);
+  // Ma fonction pour fermer le menu
+  toggleMenuLink() {
+    this.menuClose.emit(); // Émet l'événement pour fermer le menu
   }
 }

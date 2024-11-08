@@ -2,21 +2,30 @@
 @import "../../mixins";
 
 a.no-style {
-    font-size: 14px;
-    // color: black;
-    margin: 0 10px;
+  font-size: 14px;
+  // color: black;
+  margin: 0 10px;
 }
 
 /* Menu caché sur mobile */
 @media (max-width: 768px) {
+  nav a img {
+    margin-right: auto;
+    margin-left: 15px;
+  }
 
-    nav a img {
-        margin-right: auto;
-        margin-left: 15px;
+  ::ng-deep .navLink section {
+    @include flex-center(column);
+    gap: 20px;
+
+    a.no-style {
+      font-size: 16px !important;
     }
+  }
 }
 
-::ng-deep footer section.navLink {
-    @include flex-center(column);
-    gap: 7px;
+::ng-deep .liensFooter section {
+  display: flex;
+  flex-direction: column !important;
+  gap: $gap-link-footer;
 }
