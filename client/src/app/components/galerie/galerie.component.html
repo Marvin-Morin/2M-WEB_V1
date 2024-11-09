@@ -19,30 +19,66 @@
 </div> -->
 
 <section id="projets" aria-labelledby="titre-projets">
-  <h2 id="titre-projets" #item>Mes créations</h2>
+  <h2 id="titre-projets" itemprop="headline">Mes créations</h2>
 
-  <div id="galerie" itemscope itemtype="https://schema.org/CreativeWork">
-    <div *ngFor="let image of images; let i = index" itemprop="workExample" itemscope
-      itemtype="https://schema.org/ImageObject">
-      <figure #item>
-        <img [src]="image" alt="Image de projet créé par Marvin Morin" (click)="openModal(image)"
-          itemprop="contentUrl"/>
-        <figcaption itemprop="caption">{{ descriptions[i] }}</figcaption>
+  <div id="galerie" itemscope itemtype="https://schema.org/Collection">
+    <meta itemprop="creator" content="Marvin Morin" />
+    <meta
+      itemprop="description"
+      content="Découvrez une sélection de projets réalisés par Marvin Morin, développeur web Full-Stack"
+    />
+
+    <div
+      *ngFor="let image of images; let i = index"
+      itemprop="hasPart"
+      itemscope
+      itemtype="https://schema.org/CreativeWork"
+    >
+      <figure
+        itemprop="associatedMedia"
+        itemscope
+        itemtype="https://schema.org/ImageObject"
+      >
+        <img
+          [src]="image"
+          alt="Image de projet créé par Marvin Morin"
+          (click)="openModal(image)"
+          itemprop="contentUrl"
+        />
+        <figcaption itemprop="caption description">
+          {{ descriptions[i] }}
+        </figcaption>
+        <meta itemprop="creator" content="Marvin Morin" />
       </figure>
     </div>
   </div>
 
-  <a href="https://marvin.fronthub.fr" target="_blank" itemprop="url"
-    aria-label="Voir tous les projets de Marvin Morin" #item>
+  <a
+    href="https://marvin.fronthub.fr"
+    target="_blank"
+    itemprop="url"
+    aria-label="Voir tous les projets de Marvin Morin"
+  >
     Voir tous mes projets
   </a>
 </section>
 
 <!-- Modal pour afficher l'image en plein écran -->
-<div class="modal" *ngIf="selectedImage" (click)="closeModal()" role="dialog" aria-modal="true"
-  aria-label="Image en grand">
+<div
+  class="modal"
+  *ngIf="selectedImage"
+  (click)="closeModal()"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image en grand"
+>
   <div class="modal-content" (click)="stopPropagation($event)">
-    <img [src]="selectedImage" alt="Affichage en plein écran de l'image sélectionnée" />
-    <button class="close" (click)="closeModal()" aria-label="Fermer l'image">×</button>
+    <img
+      [src]="selectedImage"
+      alt="Affichage en plein écran de l'image sélectionnée par Marvin Morin"
+    />
+    <button class="close" (click)="closeModal()" aria-label="Fermer l'image">
+      ×
+    </button>
   </div>
 </div>

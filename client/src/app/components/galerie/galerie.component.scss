@@ -49,6 +49,10 @@ section#projets {
       transform: scale(1.1);
       transition: all 0.3s ease-out;
     }
+
+    &:not(:hover) {
+      filter: brightness(80%);
+    }
   }
 }
 
@@ -91,6 +95,10 @@ section#projets {
 @media (max-width : 864px) {
   #galerie {
     grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  img:not(:hover) {
+    filter: brightness(100%) !important;
   }
 
   .modal-content {

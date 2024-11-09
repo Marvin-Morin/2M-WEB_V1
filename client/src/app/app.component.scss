@@ -8,28 +8,6 @@
   position: relative;
 }
 
-// Style de l'overlay de chargement
-.loadingDiv {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.658);
-  /* Fond gris sombre avec transparence */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.loadingDiv img {
-  width: 200px;
-  /* Taille du GIF */
-  height: 200px;
-  border-radius: $border-radius-img;
-}
-
 // Style pour les éléments de trace de la souris
 .trail {
   position: absolute;
@@ -115,7 +93,7 @@ nav {
     flex-direction: column !important;
   }
 
-  .open {
+  #liens.open {
     display: flex !important;
     justify-content: center;
     align-items: center;

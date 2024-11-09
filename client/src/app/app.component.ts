@@ -49,8 +49,32 @@ export class AppComponent {
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
     document.body.classList.toggle('no-scroll', this.menuOpen);
+    const liensElement = document.getElementById('liens');
+    
+    if (liensElement) {
+      if (this.menuOpen) {
+        // Ouvre le menu avec l'animation d'entrée
+        liensElement.classList.add('open'); // Ajoute la classe pour afficher le menu
+        liensElement.classList.remove('slideOut');
+        liensElement.classList.add('slideIn');
+      } else {
+        // Ferme le menu avec l'animation de sortie
+        liensElement.classList.remove('slideIn');
+        liensElement.classList.add('slideOut');
+        
+        // Attendre que l'animation soit terminée avant de cacher le menu
+        setTimeout(() => {
+          liensElement.classList.remove('open'); // Retire la classe pour cacher le menu
+        }, 1000); // Durée de l'animation de fermeture (doit correspondre à la durée de `slideOut`)
+      }
+    }
+  
     console.log('menuOpen : ', this.menuOpen);
   }
+  
+  
+  
+  
 
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {

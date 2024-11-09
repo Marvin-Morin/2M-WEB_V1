@@ -7,21 +7,20 @@ import { ActiveLinkService } from '../../services/active-link.service';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './liens.component.html',
-  styleUrls: ['./liens.component.scss']
+  styleUrls: ['./liens.component.scss'],
 })
 export class LiensComponent {
-
   @Input() activeLink: string = ''; // Lien actif reçu en prop
   @Output() activeLinkChange: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(
     private router: Router,
     private activeLinkService: ActiveLinkService // Injection du service
-  ) { }
+  ) {}
 
   ngOnInit() {
     // Abonnement au service pour récupérer l'état actif
-    this.activeLinkService.activeLink$.subscribe(link => {
+    this.activeLinkService.activeLink$.subscribe((link) => {
       this.activeLink = link;
     });
   }
@@ -41,7 +40,11 @@ export class LiensComponent {
   @Output() menuClose: EventEmitter<void> = new EventEmitter<void>();
 
   // Ma fonction pour fermer le menu
-  toggleMenuLink() {
+  toggleMenuLink(event: MouseEvent) {
     this.menuClose.emit(); // Émet l'événement pour fermer le menu
+
+    if (event.ctrlKey || event.metaKey) {
+      return;
+    }
   }
 }

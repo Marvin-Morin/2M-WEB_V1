@@ -2,11 +2,19 @@ import { DevisService } from '../../services/devis.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Import du FormsModule
 import { Devis } from '../../interfaces/devis';
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren, OnInit, OnDestroy } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+  OnInit,
+  OnDestroy,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ActiveLinkService } from '../../services/active-link.service';
-
 
 @Component({
   selector: 'app-prestations',
@@ -16,8 +24,8 @@ import { ActiveLinkService } from '../../services/active-link.service';
   styleUrls: ['./prestations.component.scss'],
 })
 export class PrestationsComponent implements AfterViewInit {
-
   activeLink: string = '';
+  isLoading: boolean = false;
   private subscription: Subscription = new Subscription(); // Initialisation de l'abonnement
 
   // Injection du service pour gérer la soumission du formulaire
@@ -25,10 +33,10 @@ export class PrestationsComponent implements AfterViewInit {
     private devisService: DevisService,
     private routes: ActivatedRoute,
     private activeLinkService: ActiveLinkService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.subscription = this.activeLinkService.activeLink$.subscribe(link => {
+    this.subscription = this.activeLinkService.activeLink$.subscribe((link) => {
       this.activeLink = link;
     });
   }
@@ -39,7 +47,6 @@ export class PrestationsComponent implements AfterViewInit {
   @ViewChildren('prestation') prestationsRefs!: QueryList<ElementRef>;
   @ViewChildren('fieldset') fieldsetRef!: QueryList<ElementRef>;
 
-
   ngAfterViewInit() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -49,14 +56,14 @@ export class PrestationsComponent implements AfterViewInit {
         }
       });
     });
-  
+
     this.prestationsRefs.forEach((element) => {
       observer.observe(element.nativeElement);
     });
     this.fieldsetRef.forEach((element) => {
       observer.observe(element.nativeElement);
     });
-  
+
     // Subscribe to route fragment only once
     this.fragmentSubscription = this.routes.fragment.subscribe((fragment) => {
       if (fragment) {
@@ -65,14 +72,13 @@ export class PrestationsComponent implements AfterViewInit {
           target.scrollIntoView({ behavior: 'smooth' });
         }
       }
-  
+
       // Unsubscribe after first scroll to prevent repetitive scroll
       if (this.fragmentSubscription) {
         this.fragmentSubscription.unsubscribe();
       }
     });
   }
-  
 
   // Cleanup if necessary when component is destroyed
   ngOnDestroy() {
@@ -84,13 +90,9 @@ export class PrestationsComponent implements AfterViewInit {
     }
   }
 
-
-
   // Propriétés pour gérer l'état du formulaire
   isSubmitted: boolean = false; // Indique si le formulaire a été soumis
   hasError: boolean = false; // Indique si une erreur s'est produite lors de l'envoi
-
-
 
   // Initialisation des données du formulaire
   formData: Devis = {
@@ -112,11 +114,11 @@ export class PrestationsComponent implements AfterViewInit {
     // Fonctionnalités / pages souhaitées pour le site
     features: {
       'contact-form': false,
-      'blog': false,
-      'portfolio': false,
-      'faq': false,
-      'booking': false,
-      'catalog': false,
+      blog: false,
+      portfolio: false,
+      faq: false,
+      booking: false,
+      catalog: false,
     },
 
     // Nombre de produits pour le site e-commerce
@@ -125,8 +127,8 @@ export class PrestationsComponent implements AfterViewInit {
     // Options de paiement pour le site e-commerce
     payment_options: {
       'payment-card': false,
-      'paypal': false,
-      'stripe': false,
+      paypal: false,
+      stripe: false,
     },
 
     // Option pour un moyen de paiement spécifique
@@ -136,7 +138,7 @@ export class PrestationsComponent implements AfterViewInit {
     delivery_options: {
       'delivery-national': false,
       'delivery-international': false,
-      'pickup': false,
+      pickup: false,
     },
 
     // Gestion des stocks (si nécessaire pour un site e-commerce)
@@ -149,7 +151,7 @@ export class PrestationsComponent implements AfterViewInit {
     },
 
     options: {
-      'SEO': false,
+      SEO: false,
       'web-semantique': false,
     },
 
@@ -157,11 +159,9 @@ export class PrestationsComponent implements AfterViewInit {
     message: '',
   };
 
-
-
-
   // Méthode appelée lors de la soumission du formulaire
   onSubmit() {
+    this.isLoading = true;
 
     const formattedData = {
       ...this.formData, // Utilisation de l'opérateur spread pour copier les données du formulaire
@@ -173,19 +173,19 @@ export class PrestationsComponent implements AfterViewInit {
 
     console.log(formattedData);
 
-
-
     // Appel du service pour soumettre le formulaire et gérer la réponse
     this.devisService.submitDevis(formattedData).subscribe({
       next: (response) => {
         console.log('Email envoyé avec succès!'); // Confirmation d'un envoi réussi
         this.isSubmitted = true; // Indicateur de succès
         this.hasError = false; // Pas d'erreur rencontrée
+        this.isLoading = false;
       },
       error: (error) => {
         console.error("Erreur lors de l'envoi de l'email", error); // Gestion des erreurs en cas d'échec d'envoi
         this.hasError = true; // Indicateur d'erreur
         this.isSubmitted = false; // Réinitialisation de l'état de soumission
+        this.isLoading = false;
       },
     });
   }

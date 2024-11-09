@@ -13,44 +13,89 @@
     <div class="bubble"></div>
     <div class="bubble"></div>
     <h1 itemprop="name" #titre>
-      Création de site internet <br />
-      pour professionnels et particuliers
+      Création de sites web sur mesure <br />
+      pour professionnels et entreprises
     </h1>
   </div>
 
-  <div id="presentation" #presentation>
+  <div
+    id="presentation"
+    #presentation
+    itemscope
+    itemtype="https://schema.org/ProfessionalService"
+  >
+
     <p itemprop="description">
-      Je vous propose mes services complets de création de sites web, adaptés à
-      tous vos besoins : du site vitrine professionnel pour présenter votre
-      activité à un site complet avec formulaires de contact en langages de
-      programmation pur, jusqu'à des sites e-commerce performants à l’aide de
-      WordPress.
+      Je propose des services complets de création de sites web pour répondre à
+      tous vos objectifs. Que ce soit pour un
+      <span itemprop="serviceType">site vitrine professionnel</span> mettant en
+      avant votre activité, un
+      <span itemprop="serviceType"
+        >site personnalisé avec des fonctionnalités avancées</span
+      >
+      (comme des formulaires de contact en programmation pure), ou une
+      <span itemprop="serviceType">boutique en ligne performante</span>
+      propulsée par WordPress pour le e-commerce, je vous accompagne de la
+      conception à la mise en ligne. Mes solutions sont pensées pour optimiser
+      votre visibilité en ligne et capter l’attention de vos clients cibles.
     </p>
-    <h3>Voici ce que je peux réaliser pour vous :</h3>
-    <ul itemscope itemtype="https://schema.org/ItemList" #liste>
+
+    <meta itemprop="name" content="Marvin Morin - 2M WEB" />
+    <meta itemprop="url" content="https://www.votresite.com"/>
+    
+    <h3 itemprop="name">Voici ce que je peux réaliser pour vous :</h3>
+    
+    <ul itemscope itemtype="https://schema.org/ItemList" itemprop="hasOfferCatalog" #liste>
+      <meta itemprop="name" content="Catalogue de services web" />
+      <meta itemprop="numberOfItems" content="5" />
+  
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
         <a href="/prestations#site-vitrine" itemprop="url">
-          <span itemprop="description">Création de sites vitrines pour une présence en ligne élégante et professionnelle.</span>
+          <span itemprop="name">Création de sites vitrines</span>
+          <meta itemprop="category" content="Présence en ligne" />
+          <span itemprop="description">
+            Une présence en ligne élégante et professionnelle pour présenter votre activité.
+          </span>
         </a>
       </li>
+  
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
         <a href="/prestations#site-complet" itemprop="url">
-          <span itemprop="description">Sites complets intégrant des formulaires de contact pour interaction client.</span>
+          <span itemprop="name">Sites complets</span>
+          <meta itemprop="category" content="Interactivité et Contact" />
+          <span itemprop="description">
+            de plusieurs pages intégrant des formulaires de contact pour les interactions avec les clients.
+          </span>
         </a>
       </li>
+  
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
         <a href="/prestations#site-e-commerce-wordpress" itemprop="url">
-          <span itemprop="description">Sites e-commerce pour vendre en ligne avec design personnalisé.</span>
+          <span itemprop="name">Sites e-commerce</span>
+          <meta itemprop="category" content="Vente en ligne" />
+          <span itemprop="description">
+            pour vendre un ou plusieurs produit(s) en ligne avec une expérience optimisée.
+          </span>
         </a>
       </li>
+  
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
-        <a href="/prestations#site-e-commerce-wordpress" itemprop="url">
-          <span itemprop="description">Sites WordPress modulables et évolutifs pour des projets à long terme.</span>
+        <a href="/prestations#site-modulable" itemprop="url">
+          <span itemprop="name">Sites WordPress modulables et évolutifs.</span>
+          <meta itemprop="category" content="Évolutivité" />
+          <span itemprop="description">
+            Conception de sites WordPress modulables pour des projets à long terme avec mise à jour facile.
+          </span>
         </a>
       </li>
+  
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
         <a href="#" itemprop="url">
-          <span itemprop="description">SEO et Web Sémantique pour optimiser la visibilité en ligne.</span>
+          <span itemprop="name">SEO et Web Sémantique.</span>
+          <meta itemprop="category" content="Optimisation de la visibilité en ligne" />
+          <span itemprop="description">
+            Services d’optimisation SEO et intégration de balises et schémas sémantiques pour une visibilité accrue sur le web.
+          </span>
         </a>
       </li>
     </ul>
@@ -59,14 +104,39 @@
 
 <div class="carousel-container" #carousel>
   <h2 itemprop="name">Mes diplômes</h2>
-  <div itemscope itemtype="https://schema.org/EducationalOccupationalCredential" class="carousel" [style.transform]="transformStyle">
-    <meta itemprop="credentialCategory" content="Web Development Certification">
-    <meta itemprop="name" content="Développeur Web Certifié Full-Stack">
-    <meta itemprop="educationalLevel" content="Certification professionnelle">
+  <div
+    itemscope
+    itemtype="https://schema.org/EducationalOccupationalCredential"
+    class="carousel"
+    [style.transform]="transformStyle"
+  >
+    <meta
+      itemprop="credentialCategory"
+      content="Web Development Certification"
+    />
+    <meta itemprop="name" content="Développeur Web Certifié Full-Stack" />
+    <meta itemprop="educationalLevel" content="Certification professionnelle" />
     <div class="carousel">
-      <img *ngFor="let image of images" [src]="image" alt="Diplôme" class="carousel-image" />
+      <img
+        *ngFor="let image of images"
+        [src]="image"
+        alt="Diplôme"
+        class="carousel-image"
+      />
     </div>
   </div>
-  <button *ngIf="currentIndex > 0" class="carousel-button left" (click)="prevImage()">&#10094;</button>
-  <button *ngIf="currentIndex < images.length - 1" class="carousel-button right" (click)="nextImage()">&#10095;</button>
+  <button
+    *ngIf="currentIndex > 0"
+    class="carousel-button left"
+    (click)="prevImage()"
+  >
+    &#10094;
+  </button>
+  <button
+    *ngIf="currentIndex < images.length - 1"
+    class="carousel-button right"
+    (click)="nextImage()"
+  >
+    &#10095;
+  </button>
 </div>

@@ -263,6 +263,32 @@
       transform: translateY(0) translateX(-50%);
     }
   }
+  @keyframes slideOutToRight {
+    0% {
+      opacity: 1;
+      transform: translateY(0) translateX(-50%); /* Position actuelle */
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(0) translateX(100%); /* Déplace vers la droite */
+    }
+  }
+
   transition: all 0.3s ease-in-out;
-  animation: slideInFromTopRight 0.5s ease-out forwards;
+
+  &.slideIn {
+    animation: slideInFromTopRight 0.5s ease-out forwards;
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  &.slideOut {
+    animation: slideOutToRight 0.5s ease-in forwards;
+    visibility: visible;
+    opacity: 1;
+    display: flex ;
+    justify-content: center;
+  }
 }

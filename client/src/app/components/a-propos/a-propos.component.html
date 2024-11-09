@@ -1,9 +1,63 @@
 <section id="presentation" itemscope itemtype="https://schema.org/Person">
+    <header>
+      <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+        <img src="./img/photoMarvin/Marvin-Morin.png" alt="Photo de Marvin Morin" itemprop="url">
+        <meta itemprop="contentUrl" content="https://votre-site.com/img/photoMarvin/Marvin-Morin.png">
+      </figure>
+      <app-reseaux-sociaux></app-reseaux-sociaux>
+    </header>
+  
+    <article itemprop="description">
+        <p>
+          Je m'appelle <span itemprop="name">Marvin Morin</span>, et je suis un <span itemprop="jobTitle">développeur web certifié Full-Stack</span> passionné, âgé de <span itemprop="birthDate">26 ans</span>. Ma spécialisation inclut la création de <span itemprop="specialty">sites internet</span>, en particulier <span itemprop="knowsAbout">des sites vitrines et des solutions e-commerce</span>. Mon expertise s'étend aussi bien au <span itemprop="programmingLanguage">développement en code natif (HTML, CSS, SCSS, JavaScript, TypeScript, React et Angular)</span> qu'à l'intégration de <span itemprop="contentLocation">WordPress</span> pour des solutions e-commerce robustes.
+        </p>
+        <p>
+          Mon approche est axée sur la <span itemprop="approach">compréhension des besoins spécifiques de chaque client</span>. Cela me permet de concevoir des <span itemprop="serviceType">expériences en ligne</span> engageantes, qui répondent aux objectifs commerciaux de chaque projet. Grâce à mon expérience et à ma <span itemprop="competency">maîtrise des meilleures pratiques de développement</span>, je fournis des solutions sur mesure, tout en intégrant des éléments de <span itemprop="knowsAbout">SEO et de web sémantique</span> pour améliorer la visibilité en ligne.
+        </p>
+        <p>
+          Depuis <span itemprop="foundingDate">2017</span>, je me suis formé de manière autonome en <span itemprop="discipline">développement web</span>. J'ai débuté par <span itemprop="learningResourceType">HTML, CSS, et JavaScript</span>. Entre <span itemprop="datePublished">2022, 2023 et 2024</span>, j'ai suivi une formation approfondie sur <span itemprop="knows">HTML, CSS, SCSS, TypeScript, React, Angular, Node.js</span>, qui m'a permis de m’orienter vers le <span itemprop="field">web sémantique</span>.
+        </p>
+        <p>
+          Vous pouvez consulter mon profil <a href="https://www.linkedin.com/in/marvin-morin-5b15291b3/" target="_blank" itemprop="sameAs">LinkedIn</a> pour plus de détails sur mon parcours professionnel et mes compétences. Je suis toujours prêt à relever de nouveaux défis et à collaborer sur des projets innovants.
+        </p>
+      </article>
+  
+    <!-- Données structurées JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marvin Morin",
+        "jobTitle": "Développeur Web",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://votre-site.com/img/photoMarvin/Marvin-Morin.png",
+            "contentUrl": "https://votre-site.com/img/photoMarvin/Marvin-Morin.png"
+        },
+        "url": "https://votre-site.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/marvin-morin-5b15291b3/"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Votre Ville",
+            "addressRegion": "Votre Région",
+            "addressCountry": "Votre Pays"
+        },
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "SCSS", "TypeScript", "React", "Web sémantique"]
+    }
+    </script>
+  </section>
+  
+
+  <!--
+  
+  <section id="presentation" itemscope itemtype="https://schema.org/Person">
     <header #image>
         <figure>
             <img src="./img/photoMarvin/Marvin-Morin.png" alt="Photo de Marvin Morin" itemprop="image">
         </figure>
-        <!-- Composant de réseaux sociaux -->
+
         <app-reseaux-sociaux></app-reseaux-sociaux>
     </header>
 
@@ -38,7 +92,6 @@
     </article>
 
 
-    <!-- Données structurées JSON-LD -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -64,3 +117,5 @@
     }
     </script>
 </section>
+
+-->

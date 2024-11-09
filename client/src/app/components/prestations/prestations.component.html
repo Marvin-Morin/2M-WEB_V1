@@ -1,9 +1,12 @@
 <!-- <h1>Mes prestations</h1> -->
-
+<!-- Overlay de chargement -->
+<div class="loadingDiv" *ngIf="isLoading" ria-live="polite">
+  <img src="./gif/Ellipsis@1x-1.3s-200px-200px.gif" alt="Chargement en cours, veuillez patienter..." />
+</div>
 <!-- Section pour les prestations -->
 <section class="prestations" itemscope itemtype="https://schema.org/Service">
   <!-- Création d'un site vitrine -->
-  <div class="prestation" id="site-vitrine" itemscope itemprop="offers" itemtype="https://schema.org/Offer" #prestation>
+  <article class="prestation" id="site-vitrine" itemscope itemprop="offers" itemtype="https://schema.org/Offer" #prestation>
     <h2 itemprop="name">Création d'un Site Vitrine</h2>
     <p itemprop="description">
       Présentez votre activité avec élégance et professionnalisme grâce à un
@@ -21,10 +24,10 @@
       </li>
       <li>Blog pour partager des articles ou actualités.</li>
     </ul>
-  </div>
+  </article>
 
   <!-- Sites complets avec fonctionnalités avancées -->
-  <div class="prestation" id="site-complet" itemscope itemprop="offers" itemtype="https://schema.org/Offer" #prestation>
+  <article class="prestation" id="site-complet" itemscope itemprop="offers" itemtype="https://schema.org/Offer" #prestation>
     <h2 itemprop="name">Sites Complets avec Fonctionnalités Avancées</h2>
     <p itemprop="description">
       Au-delà d’une simple présentation, un site complet vous permet d'interagir
@@ -42,10 +45,10 @@
         utilisateur.
       </li>
     </ul>
-  </div>
+  </article>
 
   <!-- Sites e-commerce avec WordPress -->
-  <div class="prestation" id="site-e-commerce-wordpress" itemscope itemprop="offers"
+  <article class="prestation" id="site-e-commerce-wordpress" itemscope itemprop="offers"
     itemtype="https://schema.org/Offer" #prestation>
     <h2 itemprop="name">Sites E-commerce avec WordPress</h2>
     <p itemprop="description">
@@ -69,11 +72,11 @@
         réservations, les formulaires ou les newsletters;
       </li>
     </ul>
-  </div>
+  </article>
 
   <h3>Options</h3>
   <!-- SEO web semantique -->
-  <div class="prestation" id="site-e-commerce-wordpress" itemscope itemprop="offers"
+  <article class="prestation" id="site-e-commerce-wordpress" itemscope itemprop="offers"
     itemtype="https://schema.org/Offer" #prestation>
     <h2 itemprop="name">SEO et Web sémantique</h2>
     <p itemprop="description">
@@ -85,7 +88,8 @@
       balises spéciales qui expliquent le sens de chaque élément. Cela aide les moteurs de recherche à comprendre le
       contexte et améliore encore votre visibilité pour les recherches spécifiques.
     </p>
-  </div>
+  </article>
+
   <hr>
 
 </section>
@@ -96,21 +100,22 @@
 
 <form (ngSubmit)="onSubmit()" #devisForm="ngForm" id="devis" itemscope itemtype="https://schema.org/FormAction">
   <h2>Adaptez votre devis en fonction de vos besoins</h2>
+  
   <!-- Informations Générales -->
   <fieldset id="informationsPersonnelles" itemscope itemtype="https://schema.org/Person" #fieldset>
     <legend>Informations Générales</legend>
     <label for="name">Nom et Prénom :</label>
-    <input type="text" id="name" name="name" [(ngModel)]="formData.name" required itemprop="name" /><br /><br />
+    <input type="text" id="name" name="name" [(ngModel)]="formData.name" required aria-required="true" itemprop="name" /><br /><br />
 
     <label for="company">Nom de l'entreprise :</label>
     <input type="text" id="company" name="company" [(ngModel)]="formData.company" itemprop="worksFor" itemscope
       itemtype="https://schema.org/Organization" /> <br /><br />
 
     <label for="email">Adresse e-mail :</label>
-    <input type="email" id="email" name="email" [(ngModel)]="formData.email" required itemprop="email" /><br /><br />
+    <input type="email" id="email" name="email" [(ngModel)]="formData.email" required aria-required="true" itemprop="email" /><br /><br />
 
     <label for="phone">Numéro de téléphone :</label>
-    <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone" required itemprop="telephone" />
+    <input type="tel" id="phone" name="phone" [(ngModel)]="formData.phone" required aria-required="true" itemprop="telephone" />
   </fieldset>
 
   <br />
