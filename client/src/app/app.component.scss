@@ -83,7 +83,6 @@ nav {
   #liens {
     width: auto;
     padding: $padding-10;
-    @include animationLink();
   }
 }
 
@@ -109,6 +108,7 @@ nav {
     padding: 80px 0;
     z-index: 6000;
     transition: all 0.3s ease-in-out;
+    @include animationLink();
   }
 
   app-liens {
