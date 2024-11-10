@@ -33,6 +33,7 @@
   text-decoration: none;
   display: inline-block;
   padding: 0 5px;
+  height: auto;
 
   // Ajoute l'effet ::after si $has-after est true
   @if $has-after {
@@ -63,7 +64,7 @@
   animation: apparition $duration $timing-function forwards;
 }
 
-@mixin imageLiens() {
+@mixin no-link-after() {
   transition: all 0.3s ease-in;
 
   &:hover::after {

@@ -76,7 +76,8 @@
     <img
       [src]="selectedImage"
       alt="Affichage en plein écran de l'image sélectionnée par Marvin Morin"
-    />
+      (click)="closeModal()"
+      />
     <button class="close" (click)="closeModal()" aria-label="Fermer l'image">
       ×
     </button>

@@ -1,9 +1,7 @@
 @import "../../variables";
 @import "../../_mixins";
 
-
 section#projets {
-
   width: 100%;
   @include flex-center(column);
   margin: $margin-nav auto $margin-footer auto;
@@ -44,7 +42,8 @@ section#projets {
     cursor: pointer;
     transition: all 0.3s ease-in;
     transform: scale(1);
-    
+    cursor: zoom-in;
+
     &:hover {
       transform: scale(1.1);
       transition: all 0.3s ease-out;
@@ -72,11 +71,12 @@ section#projets {
   position: relative;
   max-width: 600px;
   @include flex-center(row);
-  
+
   img {
     width: 100%;
     height: auto;
     border-radius: $border-radius;
+    cursor: zoom-out ;
   }
 
   .close {
@@ -92,7 +92,7 @@ section#projets {
   }
 }
 
-@media (max-width : 864px) {
+@media (max-width: 864px) {
   #galerie {
     grid-template-columns: repeat(3, 1fr) !important;
   }
@@ -106,21 +106,21 @@ section#projets {
   }
 }
 
-@media (max-width : 669px) {
+@media (max-width: 669px) {
   #galerie {
     grid-template-columns: repeat(2, 1fr) !important;
     width: 80%;
   }
 }
 
-@media (max-width : 438px) {
+@media (max-width: 438px) {
   #galerie {
     grid-template-columns: repeat(1, 1fr) !important;
     width: 80%;
   }
 }
 
-@media (max-width : 600px) {
+@media (max-width: 600px) {
   section {
     margin-bottom: $margin-footer-responsive !important;
   }

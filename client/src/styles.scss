@@ -67,8 +67,8 @@ a.no-style {
   color: $blue !important;
 }
 
-a.lienImg {
-  @include imageLiens();
+a.no-link-after {
+  @include no-link-after();
 }
 
 h1 {
