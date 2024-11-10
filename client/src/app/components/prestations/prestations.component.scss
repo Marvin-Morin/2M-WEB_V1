@@ -51,14 +51,17 @@ form {
   .prestation {
     padding: 5px 15px;
 
+    article {
+      margin-right: 5px;
+    }
     p {
       text-align: justify !important;
     }
   }
+}
 
-  @media (max-width: 600px) {
-    form {
-      margin: 5px auto $margin-footer-responsive auto;
-    }
+@media (max-width: 600px) {
+  form {
+    margin: 5px auto $margin-footer-responsive auto;
   }
 }

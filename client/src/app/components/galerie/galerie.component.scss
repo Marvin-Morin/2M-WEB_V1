@@ -76,7 +76,7 @@ section#projets {
     width: 100%;
     height: auto;
     border-radius: $border-radius;
-    cursor: zoom-out ;
+    cursor: zoom-out;
   }
 
   .close {
@@ -117,12 +117,24 @@ section#projets {
   #galerie {
     grid-template-columns: repeat(1, 1fr) !important;
     width: 80%;
+
+    figure img {
+      width: 190px !important;
+      height: 190px !important;
+    }
   }
 }
 
 @media (max-width: 600px) {
   section {
     margin-bottom: $margin-footer-responsive !important;
+  }
+}
+
+// Dimension portable tourné horizontalement
+@media (max-width: 890px) and (max-height: 500px) {
+  .modal-content {
+    max-width: 50% !important;
   }
 }
 

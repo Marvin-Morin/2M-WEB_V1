@@ -80,7 +80,7 @@
 
 @mixin form() {
   max-width: 600px;
-  background-color: #fff;
+  background-color: $white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: $box-shadow;
