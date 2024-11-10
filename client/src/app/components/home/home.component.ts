@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
@@ -16,8 +17,8 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild('carousel') carouselRef!: ElementRef;
 
   images: string[] = [
-    '/img/diplomes/CCP5.png',
-    '/img/diplomes/CCP2.png',
+    './img/diplomes/CCP5.png',
+    './img/diplomes/CCP2.png',
   ];
 
   currentIndex: number = 0;

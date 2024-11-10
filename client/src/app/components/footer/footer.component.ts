@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
-import { ReseauxSociauxComponent } from "../reseaux-sociaux/reseaux-sociaux.component";
-import { LiensComponent } from "../liens/liens.component";
+import { ReseauxSociauxComponent } from '../reseaux-sociaux/reseaux-sociaux.component';
+import { LiensComponent } from '../liens/liens.component';
 import { ActiveLinkService } from '../../services/active-link.service';
 
 @Component({
@@ -9,10 +9,9 @@ import { ActiveLinkService } from '../../services/active-link.service';
   standalone: true,
   imports: [RouterModule, ReseauxSociauxComponent, LiensComponent],
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-
   currentUrl: string = ''; // Lien actuel pour suivre l'URL
 
   activeLink: string = ''; // Lien actif dans le footer
@@ -22,7 +21,7 @@ export class FooterComponent {
     private activeLinkService: ActiveLinkService // Injection du service
   ) {
     // Écoute des événements de navigation pour mettre à jour l'URL active
-    this.router.events.subscribe(event => {
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.urlAfterRedirects;
       }
@@ -31,8 +30,19 @@ export class FooterComponent {
 
   ngOnInit() {
     // Abonnement au service pour récupérer l'état actif
-    this.activeLinkService.activeLink$.subscribe(link => {
+    this.activeLinkService.activeLink$.subscribe((link) => {
       this.activeLink = link;
     });
+  }
+
+  // Fonction pour faire défiler vers le haut de la page
+  scrollToTop() {
+    window.scrollTo(0, 0);
+    this.activeLinkService.setActiveLink(''); // Réinitialise le lien actif de la barre de navigation
+  }
+
+  // Cette méthode sera appelée à chaque fois qu'un lien est cliqué
+  onLinkClick() {
+    this.scrollToTop();
   }
 }

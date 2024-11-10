@@ -5,22 +5,21 @@
 
   <hr />
 
-  <a href="/" class="no-link-after"><img src="/img/logo/logo2MWebAvecFond.png" alt="" /></a>
+  <a routerLink="/" class="no-link-after" (click)="onLinkClick()"><img src="./img/logo/logo2MWebAvecFond.png" alt="" /></a>
   <hr />
 
   <div class="liensFooter">
-    <a href="/politique-de-remboursement">Politique de Remboursement</a>
-    <a href="/politique-de-confidentalite">Politique de confidentalité</a>
-    <a href="/mentions-legales" itemprop="url">Mentions Légales</a>
-    <a href="/conditions-generales-de-vente" itemprop="url">CGV</a>
+    <a routerLink="/politique-de-remboursement" (click)="onLinkClick()">Politique de Remboursement</a>
+    <a routerLink="/politique-de-confidentalite" (click)="onLinkClick()">Politique de confidentalité</a>
+    <a routerLink="/mentions-legales" itemprop="url" (click)="onLinkClick()">Mentions Légales</a>
+    <a routerLink="/conditions-generales-de-vente" itemprop="url" (click)="onLinkClick()">CGV</a>
   </div>
 
   <p>
     &copy; <span itemprop="copyrightYear">2024 </span>
     <span itemprop="copyrightHolder">Marvin</span>. Tous droits réservés.
     <br><br>
-    <a target="_blank" href="https://www.societe.com/societe/monsieur-marvin-morin-934790247.html">Siret: 934 790
-      247</a>
+    <a target="_blank" href="https://www.societe.com/societe/monsieur-marvin-morin-934790247.html">Siret: 934 790 247</a>
     <app-reseaux-sociaux></app-reseaux-sociaux>
   </p>
 </footer>

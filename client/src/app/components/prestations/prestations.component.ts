@@ -12,7 +12,7 @@ import {
   OnInit,
   OnDestroy,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ActiveLinkService } from '../../services/active-link.service';
 
@@ -32,13 +32,28 @@ export class PrestationsComponent implements AfterViewInit {
   constructor(
     private devisService: DevisService,
     private routes: ActivatedRoute,
-    private activeLinkService: ActiveLinkService
+    private activeLinkService: ActiveLinkService,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.subscription = this.activeLinkService.activeLink$.subscribe((link) => {
       this.activeLink = link;
+
+      // Écoute les changements de fragment
+      this.routes.fragment.subscribe((fragment) => {
+        if (fragment) {
+          this.scrollToFragment(fragment);
+        }
+      });
     });
+  }
+
+  private scrollToFragment(fragment: string): void {
+    const element = document.getElementById(fragment);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   private fragmentSubscription: Subscription | null = null;

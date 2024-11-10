@@ -19,7 +19,7 @@
     </div>
 
     <div class="navLink" id="liens" [class.open]="menuOpen" itemscope itemtype="https://schema.org/SiteNavigationElement">
-      <app-liens (menuClose)="menuOpen = false"></app-liens>
+      <app-liens (menuClose)="closeMenuWithAnimation()"></app-liens>
     </div>
   </nav>
 

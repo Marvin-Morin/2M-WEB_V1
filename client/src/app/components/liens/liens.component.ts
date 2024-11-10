@@ -1,11 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { ActiveLinkService } from '../../services/active-link.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-liens',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './liens.component.html',
   styleUrls: ['./liens.component.scss'],
 })

@@ -36,13 +36,13 @@ export class GalerieComponent {
   }
 
   images = [
-    'img/galerie/projet_Marvin_Morin1.png',
-    'img/galerie/projet_Marvin_Morin2.png',
-    'img/galerie/projet_Marvin_Morin3.png',
-    'img/galerie/projet_Marvin_Morin4.png',
-    'img/galerie/projet_Marvin_Morin5.png',
-    'img/galerie/projet_Marvin_Morin6.png',
-    'img/galerie/projet_Marvin_Morin7.png',
+    './img/galerie/projet_Marvin_Morin1.png',
+    './img/galerie/projet_Marvin_Morin2.png',
+    './img/galerie/projet_Marvin_Morin3.png',
+    './img/galerie/projet_Marvin_Morin4.png',
+    './img/galerie/projet_Marvin_Morin5.png',
+    './img/galerie/projet_Marvin_Morin6.png',
+    './img/galerie/projet_Marvin_Morin7.png',
   ];
 
   descriptions = [
