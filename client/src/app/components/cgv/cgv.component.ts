@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './cgv.component.scss'
 })
 export class CGVComponent {
-  mail: string = 'marvin.malouin@gmail.com'
+  mail: string = 'contact@2m-web.fr'
   nameCompany: string = '2MWEB'
 }

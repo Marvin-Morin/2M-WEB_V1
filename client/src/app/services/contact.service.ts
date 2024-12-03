@@ -10,7 +10,7 @@ import { Contact } from '../interfaces/contact';
 
 export class ContactService {
 
-  private apiUrl = 'http://localhost:3000/contact';
+  private apiUrl = 'https://2m-web.fr/contact';
 
   constructor(private http: HttpClient) {}
 

@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class MentionsLegalesComponent {
 
-  mail: string = 'marvin.malouin@gmail.com'
-  nameCompany: string = '2MWEB'
+  mail: string = 'contact@2m-web.fr'
+  nameCompany: string = '2M WEB'
 
 }

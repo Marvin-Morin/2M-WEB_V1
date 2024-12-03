@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './politique-de-remboursement.component.scss'
 })
 export class PolitiqueDeRemboursementComponent {
-  mail: string = 'marvin.malouin@gmail.com'
-  nameCompany: string = '2MWEB'
+  mail: string = 'contact@2m-web.fr'
+  nameCompany: string = '2M WEB'
 }

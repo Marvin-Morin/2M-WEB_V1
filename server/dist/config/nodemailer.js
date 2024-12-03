@@ -9,7 +9,7 @@ dotenv_1.default.config();
 const transporter = nodemailer_1.default.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
-    secure: false,
+    secure: true,
     requireTLS: true,
     auth: {
         user: process.env.EMAIL_ADDRESS,

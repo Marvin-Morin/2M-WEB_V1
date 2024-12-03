@@ -17,8 +17,8 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild('carousel') carouselRef!: ElementRef;
 
   images: string[] = [
-    './img/diplomes/CCP5.png',
-    './img/diplomes/CCP2.png',
+    './img/diplomes/CCP5.jpeg',
+    './img/diplomes/CCP2.jpeg',
   ];
 
   currentIndex: number = 0;

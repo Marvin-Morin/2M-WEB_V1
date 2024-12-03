@@ -8,7 +8,7 @@ import { Devis } from '../interfaces/devis';
 })
 export class DevisService {
 
-  private apiUrl = 'http://localhost:3000/devis';
+  private apiUrl = 'https://2m-web.fr/devis';
 
   constructor(private http: HttpClient) { }
 
